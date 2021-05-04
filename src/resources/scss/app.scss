@@ -1,5 +1,5 @@
 body {
-    overflow:scroll;
+    overflow-y:scroll;
 }
 
 // MAIN
@@ -32,8 +32,11 @@ body {
     background-color: #425674;
     height: 50px;
     width: 100%;
-    margin-top: 20px;
-    margin-bottom: -40px;
+    // margin-top: 20px;
+    margin-bottom: 0;
+    position: absolute;
+    float: end;
+
     p {
         padding-top: 10px;
         color: white;
@@ -100,7 +103,7 @@ body {
 // Detail Post
 
 .post-menu {
-    margin-top: 55px;
+    margin-top: 30px;
     font-size: 20px;
     color: white;
     width: 50px;
@@ -123,10 +126,10 @@ body {
 
     &-title {
         line-height: 60px;
-        margin-top: 0.55em;
         font-size: 48px;
         color: rgba(41, 41, 41, 1);
-        margin-block-start: 1em;
+        margin-block-start: 0.5em;
+        
     }
 
     &-author {
@@ -141,6 +144,9 @@ body {
         &-img {
             height: 40px;
             margin: 0 10px 10px 0;
+        }
+        &-link {
+            margin-top: 5px;
         }
         &-link:hover {
             text-decoration: underline;

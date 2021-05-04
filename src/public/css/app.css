@@ -1,5 +1,5 @@
 body {
-  overflow: scroll; }
+  overflow-y: scroll; }
 
 .title-main-page {
   margin-top: 25px; }
@@ -21,8 +21,9 @@ body {
   background-color: #425674;
   height: 50px;
   width: 100%;
-  margin-top: 20px;
-  margin-bottom: -40px; }
+  margin-bottom: 0;
+  position: absolute;
+  float: end; }
   .footer p {
     padding-top: 10px;
     color: white;
@@ -69,7 +70,7 @@ body {
     background-color: #e3f2fd; }
 
 .post-menu {
-  margin-top: 55px;
+  margin-top: 30px;
   font-size: 20px;
   color: white;
   width: 50px; }
@@ -87,10 +88,9 @@ body {
   margin: auto; }
   .post-title {
     line-height: 60px;
-    margin-top: 0.55em;
     font-size: 48px;
     color: #292929;
-    margin-block-start: 1em; }
+    margin-block-start: 0.5em; }
   .post-author {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 16px;
@@ -102,6 +102,8 @@ body {
     .post-author-img {
       height: 40px;
       margin: 0 10px 10px 0; }
+    .post-author-link {
+      margin-top: 5px; }
     .post-author-link:hover {
       text-decoration: underline;
       cursor: pointer; }
