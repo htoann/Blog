@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>My Posts</title>
+</head>
+
+<body>
+    <h2 class="title-main-page">My Posts</h2>
+    <table class="table table-hover mt-4">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col" style="margin-left: 50px">Created At</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each posts}}
+            <tr>
+                <th scope="row">{{ sum @index 1}}</th>
+                <td class="text-truncate" style="max-width: 200px">{{ this.title }}</td>
+                <td>{{ this.categories }}</td>
+                <td>13:22 02/05/2021</td>
+                <td><a href="/news/{{this._id}}/edit" type="button" class="btn btn-info"
+                        style="margin-right: -40px">Edit</a></td>
+                <td><a href="/news/{{this._id}}/delete" type="button" class="btn btn-secondary" data-id="{{this._id}}"
+                        data-bs-toggle="modal" data-bs-target="#deletePost" style="margin-right: -55px">Delete</button>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    {{!-- Confirm Delete --}}
+
+    <div class="modal fade" id="deletePost" tabindex="-1" aria-labelledby="deletePost" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Post</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to delete this post? </p>
+                </div>
+                <div style="transition: 0.3s" class="modal-footer">
+                    <button style="transition: 0.3s" type="button" class="btn btn-secondary"
+                        data-bs-dismiss="modal">Cancel</button>
+                    <button id="btn-delete-post" type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+{{!-- Delete Hiden Form --}}
+
+<form name="delete-post-form" method="POST"></form>
+
+</html>
+
+<script>
+    var exampleModal = document.getElementById('deletePost')
+    let postId;
+    let deleteForm = document.forms['delete-post-form']
+    let btnDeletePost = document.getElementById('btn-delete-post')
+
+    // When Dialog Confirm Clicked
+    exampleModal.addEventListener('show.bs.modal', function (event) {
+        let button = event.relatedTarget
+        postId = button.getAttribute('data-id')
+    })
+
+    // When Delete Post Button Clicked
+    btnDeletePost.addEventListener('click', function () {
+        deleteForm.action = '/news/' + postId + '?_method=DELETE'
+        deleteForm.submit()
+    })
+</script>

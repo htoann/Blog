@@ -1,0 +1,41 @@
+<title>Creat New Post </title>
+
+<h2 class="mt-4 mb-4">Create New Post</h2>
+
+<form method="POST" action="/news/store">
+  <div class="form-group mb-3">
+    <label class="form-label form-label-create">Title</label>
+    <input type="text" class="form-control form-control-lg"
+      placeholder="How to Distinguish a Good Programmer from a Bad One" name="title">
+  </div>
+
+  <div class="form-group mb-3">
+    <label class="form-label form-label-create-description form-label-create">Description</label>
+    <input type="text" class="form-control form-control-lg"
+      placeholder="And what you can do to avoid being a bad programmer" name="description">
+  </div>
+
+  <div class="form-group mb-3">
+    <p class="form-label-create">Content</p>
+    <textarea class="form-label-create-content" rows="9" cols="70" name="content"></textarea>
+  </div>
+
+  <div class="form-group mb-3">
+    <label class="form-label form-label-create">Author</label>
+    <input type="text" class="form-control form-control-lg" placeholder="Josef Cruz" name="author">
+  </div>
+
+  {{!-- Categories --}}
+
+  <p class="form-label-create">Categories</p>
+  <select class="form-select form-select-lg" aria-label=".form-select-sm example" name="categories">
+    <option name="categories"selected>Blog</option>
+    <option name="categories">News</option>
+    <option name="categories">Story</option>
+    <option name="categories">Programming</option>
+    <option name="categories">Business</option>
+    <option name="categories">Psychology</option>
+    <option name="categories">Lifestyle</option>
+  </select>
+  <button type="submit" class="btn btn-success btn-lg mt-4">Publish</button>
+</form>
