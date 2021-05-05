@@ -1,2 +1,2 @@
 ## My biggest project ever
-## Check it out
+Check it out
