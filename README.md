@@ -1,3 +1,2 @@
 ## My biggest project ever
 ## Some ideas are based on medium.com, facebook.com, genk.vn, ...
-Check it out
