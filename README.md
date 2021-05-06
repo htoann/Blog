@@ -1,6 +1,2 @@
 ## My biggest project ever
-<<<<<<< HEAD
 ## Some ideas based on medium.com, genk.vn, facebook.com, ...
-=======
-## Some ideas based on medium.com, genk.vn, facebook.com, ...
-<<<<<<< HEAD
