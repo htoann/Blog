@@ -1,1 +1,2 @@
-# NodeJS_Blog
+## My biggest project ever
+## Some ideas based on medium.com, genk.vn, facebook.com, ...
