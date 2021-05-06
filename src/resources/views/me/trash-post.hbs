@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>My Posts</title>
+    <title>Deleted Posts</title>
 </head>
 
 <body>
     <div class="d-flex justify-content-between">
         <h2 class="title-main-page">My Posts</h2>
-        <a href="/me/trash/posts" class="btn btn-danger mt-auto" ><i class="fas fa-trash body icon-title"></i>Trash</a>
+        <a href="/me/stored/posts" class="btn btn-primary mt-auto" ><i class="fas fa-undo-alt icon-title"></i>Back</a>
     </div>
     <table class="table table-hover mt-4">
         <thead>
@@ -25,21 +25,21 @@
             {{#each posts}}
             <tr>
                 <th scope="row">{{ sum @index 1}}</th>
-                <td class="text-truncate" style="max-width: 200px">{{ this.title }}</td>
+                <td class="text-truncate" style="max-width: 180px">{{ this.title }}</td>
                 <td>{{ this.categories }}</td>
-                <td>13:22 02/05/2021</td>
-                <td><a href="/news/{{this._id}}/edit" type="button" class="btn btn-info"
-                        style="margin-right: -40px">Edit</a></td>
-                <td><a href="/news/{{this._id}}/delete" type="button" class="btn btn-secondary" data-id="{{this._id}}"
-                        data-bs-toggle="modal" data-bs-target="#deletePost" style="margin-right: -55px">Delete</button>
+                <td> 13:22 02/05/2021 </td>
+                <td>
+                    <a href="#" class="btn btn-success btn-restore" data-id="{{ this._id }}" style="margin-right: -75px">
+                        Restore
+                    </a>
                 </td>
             </tr>
             
             {{else}}
             <tr>
                 <td colspan="6" class="text-center">
-                    <h4>You don't have any posts yet</h4>
-                    <a href="/news/create" class="btn btn-success mt-4">Create A New Post Now</a>
+                    <h4>Empty Trash</h4>
+                    <a href="/news" class="btn btn-primary mt-4">All Posts</a>
                 </td>
                 
             </tr>
@@ -59,8 +59,8 @@
                 <div class="modal-body">
                     <p>Do you want to delete this post? </p>
                 </div>
-                <div style="transition: 0.3s" class="modal-footer">
-                    <button style="transition: 0.3s" type="button" class="btn btn-secondary"
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary"
                         data-bs-dismiss="modal">Cancel</button>
                     <button id="btn-delete-post" type="button" class="btn btn-danger">Delete</button>
                 </div>
@@ -72,24 +72,35 @@
 {{!-- Delete Hiden Form --}}
 
 <form name="delete-post-form" method="POST"></form>
+<form name="restore-post-form" method="POST"></form>
 
 </html>
 
 <script>
-    var exampleModal = document.getElementById('deletePost')
+    var exampleModal = document.getElementById('deletePost');
     let postId;
-    let deleteForm = document.forms['delete-post-form']
-    let btnDeletePost = document.getElementById('btn-delete-post')
+    let deleteForm = document.forms['delete-post-form'];
+    let restoreForm = document.forms['restore-post-form'];
+    let btnDeletePost = document.getElementById('btn-delete-post');
+    var btnRestore = $('.btn-restore');
 
     // When Dialog Confirm Clicked
     exampleModal.addEventListener('show.bs.modal', function (event) {
-        let button = event.relatedTarget
-        postId = button.getAttribute('data-id')
+        let button = event.relatedTarget;
+        postId = button.getAttribute('data-id');
     })
 
     // When Delete Post Button Clicked
     btnDeletePost.addEventListener('click', function () {
-        deleteForm.action = '/news/' + postId + '?_method=DELETE'
-        deleteForm.submit()
+        deleteForm.action = '/news/' + postId + '?_method=DELETE';
+        deleteForm.submit();
+    });
+
+    btnRestore.click(function (e) {
+        e.preventDefault();
+        let postId = $(this).data('id');
+
+        restoreForm.action = '/news/' + postId + '/restore?_method=PATCH';
+        restoreForm.submit();
     })
 </script>

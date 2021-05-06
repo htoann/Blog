@@ -12,6 +12,15 @@ class MeController {
             }))
             .catch(next)
     }
+
+    // [GET] /me/stored/posts
+    trash(req, res, next) {
+        BlogPost.findDeleted({})
+            .then(posts => res.render('me/trash-post', {
+                posts: multipleMongooseToObject(posts)
+            }))
+            .catch(next)
+    }
 }
 
 module.exports = new MeController;

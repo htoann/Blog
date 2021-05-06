@@ -1,7 +1,7 @@
-<title>News</title>
+<title>Posts</title>
 
 <body>
-    <h2 class="title-main-page">Blogs Page</h2>
+    <h2 class="title-main-page">Posts</h2>
     <hr>
 
     <div>
@@ -11,11 +11,11 @@
                 <h3 class="card-header">{{ this.title }}</h3>
             </a>
 
-            {{!-- <img class="card-header-picture"src="{{this.img}}" alt=""> --}}
+            {{!-- <img class="card-header-picture" src="{{this.img}}" alt=""> --}}
 
             <div class="card-body">
                 {{!-- <h5 class="card-title">{{ this.title }}</h5> --}}
-                <p class="card-text" >{{ this.description }}</p>
+                <p class="card-text">{{ this.description }}</p>
 
                 <div class="card-footer-item">
                     <a href="#" class="btn btn-light"> Author : {{ this.author }} </a>
@@ -24,6 +24,21 @@
             </div>
         </div>
         <hr style="width: 680px">
+
+        {{else}}
+
+        <table class="table table-hover mt-4 text-center">
+            <tbody>
+                <tr>
+                    <td colspan="6">
+                        <h4>No Posts Available</h4>
+                        <a href="/news/create" class="btn btn-success mt-4">Create A New Post Now</a>
+                    </td>
+
+                </tr>
+            </tbody>
+        </table>
+
         {{/each}}
     </div>
 

@@ -31,11 +31,10 @@ class NewsController {
 
     // [POST] /news /store
     store(req, res, next) {
-        const formData = req.body;
-        const blog = new BlogPost(formData)
+        const blog = new BlogPost(req.body)
 
         blog.save()
-            .then(() => res.redirect('/news'))
+            .then(() => res.redirect('/me/stored/posts'))
             .catch(err => {})
     }
 
@@ -55,9 +54,23 @@ class NewsController {
             .catch(next)
     }
 
-    // [DELETE] /news/:id/
+    // // [DELETE] /news/:id/ Delete
+    // delete(req, res, next) {
+    //     BlogPost.deleteOne({ _id: req.params.id}, req.body)
+    //         .then(() => res.redirect('back'))
+    //         .catch(next)
+    // }
+    
+    // [DELETE] /news/:id/ Soft Delete
     delete(req, res, next) {
-        BlogPost.deleteOne({ _id: req.params.id}, req.body)
+        BlogPost.delete({ _id: req.params.id} )
+            .then(() => res.redirect('back'))
+            .catch(next)
+    }
+
+    // [PATCH] /news/:id/restore
+    restore(req, res, next) {
+        BlogPost.restore({ _id: req.params.id} )
             .then(() => res.redirect('back'))
             .catch(next)
     }

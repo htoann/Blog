@@ -3,6 +3,7 @@ const router = express.Router();
 
 const newsController = require('../app/controllers/NewsController')
 
+router.patch('/:id/restore', newsController.restore);
 router.delete('/:id', newsController.delete);
 router.put('/:id', newsController.update);
 router.get('/create', newsController.create);
