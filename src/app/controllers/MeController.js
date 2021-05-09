@@ -6,11 +6,14 @@ class MeController {
 
     // [GET] /me/stored/posts
     stored(req, res, next) {
-        BlogPost.find({})
-            .then(posts => res.render('me/stored-post', {
-                posts: multipleMongooseToObject(posts)
-            }))
-            .catch(next)
+        Promise.all([BlogPost.find({}), BlogPost.countDocumentsDeleted()])
+            .then(([posts, deletedCount]) =>
+                res.render('me/stored-post', {
+                    deletedCount,
+                    posts: multipleMongooseToObject(posts)
+                })
+            )
+            .catch(next);
     }
 
     // [GET] /me/stored/posts

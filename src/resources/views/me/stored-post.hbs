@@ -8,8 +8,24 @@
 <body>
     <div class="d-flex justify-content-between">
         <h2 class="title-main-page">My Posts</h2>
-        <a href="/me/trash/posts" class="btn btn-danger mt-auto" ><i class="fas fa-trash body icon-title"></i>Trash</a>
+        <a href="/me/trash/posts" class="btn btn-danger mt-auto"><i class="fas fa-trash body icon-title"></i>Trash
+            ({{deletedCount}})
+        </a>
     </div>
+    {{!-- <div class="mt-4 d-flex align-items-center">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+            <label class="form-check-label" for="flexCheckDefault">
+                Select All
+            </label>
+        </div>
+        <select class="form-control form-select-md" aria-label="Default select example"
+            style="width: 160px; margin: 0 20px">
+            <option selected>-- Select Action --</option>
+            <option value="1">Delete</option>
+        </select>
+        <button class="btn btn-primary">Apply</button>
+    </div> --}}
     <table class="table table-hover mt-4">
         <thead>
             <tr>
@@ -34,14 +50,14 @@
                         data-bs-toggle="modal" data-bs-target="#deletePost" style="margin-right: -55px">Delete</button>
                 </td>
             </tr>
-            
+
             {{else}}
             <tr>
                 <td colspan="6" class="text-center">
                     <h4>You don't have any posts yet</h4>
                     <a href="/news/create" class="btn btn-success mt-4">Create A New Post Now</a>
                 </td>
-                
+
             </tr>
             {{/each}}
         </tbody>
