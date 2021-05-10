@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ post.title }}</title>
+    <link rel="stylesheet" href="/css/posts.css">
 </head>
 
 <body>
@@ -24,7 +25,8 @@
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="/news/{{ post._id }}/edit">
                             <i class="fas fa-pen icon-title"></i>Edit Post</a></li>
-                    <li><button class="dropdown-item dropdown-item-delete"><i class="fas fa-trash-alt icon-title" data-id="{{post._id}}"></i>
+                    <li><button class="dropdown-item dropdown-item-delete"><i class="fas fa-trash-alt icon-title"
+                                data-id="{{post._id}}"></i>
                             Delete
                         </button></li>
                 </ul>
@@ -73,6 +75,3 @@
         alert("Please go to \"My Posts\" to delete this post")
     })
 </script>
-
-
-
