@@ -1,0 +1,40 @@
+// News Page
+
+.card {
+  &-item {
+    margin-top: 20px;
+  }
+
+  &-header {
+    transition: 0.2s;
+    &-picture {
+      width: 500px;
+      padding-top: 20px;
+      margin: auto;
+    }
+  }
+
+  &-header:hover {
+    background-color: rgb(216, 216, 216);
+    color: black;
+  }
+
+  &-item-title {
+    text-decoration: none;
+    color: black;
+  }
+
+  &-footer-item {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    &-p {
+      font-weight: -500;
+      color: rgb(65, 99, 161);
+      padding-top: 6px;
+    }
+    .btn {
+      background-color: #e3f2fd;
+    }
+  }
+}
