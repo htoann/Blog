@@ -45,7 +45,8 @@ body {
   border-color: #2ecc71;
 }
 
-.box input[type="submit"] {
+.box input[type="submit"],
+.box button {
   border: 0;
   background: none;
   display: block;
@@ -62,6 +63,15 @@ body {
 
 .box input[type="submit"]:hover {
   background: #2ecc71;
+}
+
+.box button:hover {
+  background: #2ecc71;
+}
+
+.box a {
+  text-decoration: none;
+  color: white;
 }
 
 .forgot {
