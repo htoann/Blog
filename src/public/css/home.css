@@ -1,2 +1,73 @@
+/* body {
+  background-image: url(../img/background.jpg); } */
+@keyframes mygradient {
+  0% {
+    background-position: 0%;
+  }
+
+  100% {
+    background-position: 100%;
+  }
+}
+
 body {
-  background-image: url(../img/background.jpg); }
+  margin: 0px;
+  background: linear-gradient(
+    90deg,
+    rgb(245, 127, 23),
+    rgb(233, 30, 99),
+    rgb(156, 39, 176),
+    rgb(63, 81, 181)
+  );
+  height: 100vh;
+  width: 100vw;
+  background-size: 600% 100%;
+  background-repeat: no-repeat;
+  animation: mygradient 24s linear infinite alternate;
+}
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(90deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#wave {
+  height: 100%;
+  overflow: hidden;
+}
+
+#wave:before {
+  content: "";
+  overflow: hidden;
+  position: absolute;
+  bottom: 12%;
+  left: -250vw;
+  width: 600vw;
+  height: 600vw;
+  background: rgba(0, 0, 0, 0.375);
+  border-radius: 48% 52% 52% 48% / 48% 52% 48% 52%;
+  animation: wave 9s ease-in-out infinite;
+  animation-delay: -3s;
+}
+
+#wave:after {
+  content: "";
+  overflow: hidden;
+  position: absolute;
+  bottom: 12%;
+  left: -250vw;
+  width: 600vw;
+  height: 600vw;
+  background: rgba(0, 0, 0, 0.375);
+  border-radius: 48% 52% 52% 48% / 48% 52% 48% 52%;
+  animation: wave 9s linear infinite;
+}

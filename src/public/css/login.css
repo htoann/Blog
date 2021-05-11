@@ -4,6 +4,7 @@ body {
 
 .card {
   align-items: center;
+  margin-top: -2px;
 }
 
 .box {
