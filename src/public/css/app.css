@@ -8,8 +8,8 @@
 
 .user-img {
   width: auto;
-  height: 30px;
-  margin-top: 5px; }
+  height: 40px;
+  border-radius: 50%; }
 
 .nav-item-dropdown-user {
   display: flex; }

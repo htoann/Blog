@@ -1,6 +1,6 @@
 class AboutController {
 
-    // [GET] /ABOUT
+    // [GET] /about
     index(req, res) {
         res.render('about');
     }

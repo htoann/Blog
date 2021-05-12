@@ -1,28 +1,36 @@
 .card-item {
-  margin-top: 20px; }
+  margin-top: 20px;
+}
 
 .card-header {
-  transition: 0.2s; }
-  .card-header-picture {
-    width: 500px;
-    padding-top: 20px;
-    margin: auto; }
+  transition: 0.2s;
+}
+.card-header-picture {
+  width: 500px;
+  padding-top: 20px;
+  margin: auto;
+}
 
 .card-header:hover {
   background-color: #d8d8d8;
-  color: black; }
+  color: black;
+}
 
 .card-item-title {
   text-decoration: none;
-  color: black; }
+  color: black;
+}
 
 .card-footer-item {
   display: flex;
   width: 100%;
-  justify-content: space-between; }
-  .card-footer-item-p {
-    font-weight: -500;
-    color: #4163a1;
-    padding-top: 6px; }
-  .card-footer-item .btn {
-    background-color: #e3f2fd; }
+  justify-content: space-between;
+}
+.card-footer-item-p {
+  font-weight: -500;
+  color: #4163a1;
+  padding-top: 6px;
+}
+.card-footer-item .btn {
+  background-color: #e3f2fd;
+}

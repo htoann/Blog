@@ -10,7 +10,7 @@ async function connect() {
             useFindAndModify: false,
             useCreateIndex: true,
         });
-    } catch (error) {}
+    } catch (error) { }
 }
 
 module.exports = { connect };
