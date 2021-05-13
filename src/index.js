@@ -11,26 +11,21 @@ const db = require('./config/db');
 
 //////////////////////////////////
 
+const flash = require('express-flash');
 const passport = require("passport");
 const session = require("express-session");
 const passportConfig = require("./config/passport.js");
 const authRouter = require("./routes/Auth");
 const MongoDBStore = require("connect-mongodb-session")(session);
-const cors = require("cors");
 require("dotenv").config();
 
-
-app.use(cors());
 app.use(
     session({
         secret: "verysecret",
         resave: true,
         saveUninitialized: false,
         store: new MongoDBStore({
-            //uri:
-            url:
-                //"mongodb+srv://root:root@cluster0.8g2jv.mongodb.net/BlogDatabase?retryWrites=true&w=majority",
-                "mongodb://localhost:27017/tranhuutoan_blog_dev",
+            url: "mongodb://localhost:27017/tranhuutoan_blog_dev",
             collection: "sessions",
             connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
         }),
@@ -38,6 +33,7 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(flash());
 
 /////////////////////////////////
 

@@ -1,51 +1,29 @@
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const User = require("../models/User.js");
+const { mongooseToObject } = require('../../until/mongoose');
+const { multipleMongooseToObject } = require('../../until/mongoose');
 
 class AuthController {
-
-    // [GET] /login
     getLogin = (req, res) => {
         if (!req.isAuthenticated()) res.render("auth/login");
         else res.redirect("/profile");
     };
 
-    // [POST] /login
     postLogin = (req, res, next) => {
-        let message = "";
-        let user = new User({
-            username: req.body.username.trim(),
-            password: bcrypt.hashSync(req.body.password.trim(), 10),
-        });
-        User.findOne({ username: user.username })
-            .then((data) => {
-                if (!data) {
-                    message = "Username or password is incorrect";
-                    return res.render("auth/login", {
-                        message,
-                        user,
-                    });
-                }
-            })
-            .catch((err) => res.send(err.message));
+        passport.authenticate("local", {
+            successRedirect: "/profile",
+            failureRedirect: "/auth/login",
+            failureFlash: true,
+        })(req, res, next);
     }
 
-
-    // passport.authenticate("local", {
-    //     successRedirect: "/profile",
-    //     failureRedirect: "/auth/signup",
-    //     failureMessage: "Invalide Credential",
-    // })(req, res, next);
-
-
-    // [GET] /signup
     getSignup(req, res) {
         if (!req.isAuthenticated())
             res.render("auth/signup", { message: "", user: "" });
         else res.redirect("/profile");
     }
 
-    // [POST] /signup
     postSignup(req, res) {
         let message = "";
         let user = new User({
@@ -82,12 +60,9 @@ class AuthController {
             .catch((err) => res.send(err.message));
     }
 
-    // [GET] /logout
     getLogout(req, res) {
         if (req.isAuthenticated()) {
             req.logout();
-            res.redirect("/");
-        } else {
             res.redirect("/auth/login");
         }
     }
@@ -99,7 +74,7 @@ class AuthController {
     deserializeUser = (username, done) => {
         User.findOne({ username: username })
             .then((user) => {
-                return done(null, user);
+                return done(null, mongooseToObject(user));
             })
             .catch(done);
     };
@@ -108,11 +83,11 @@ class AuthController {
         User.findOne({ username: username.trim() })
             .then((user) => {
                 if (!user) {
-                    return done(null, false);
+                    return done(null, false, { message: 'Username not found' });
                 }
                 if (bcrypt.compareSync(password.trim(), user.password)) {
-                    return done(null, user);
-                } else return done(null, false);
+                    return done(null, mongooseToObject(user));
+                } else return done(null, false, { message: 'Password incorrect' });
             })
             .catch(done);
     };

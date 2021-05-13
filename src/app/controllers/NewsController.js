@@ -9,7 +9,7 @@ class NewsController {
         BlogPost.find({})
             .then(posts => {
                 res.render('news', {
-                    posts : multipleMongooseToObject(posts)
+                    posts: multipleMongooseToObject(posts)
                 })
             })
             .catch(next);
@@ -17,7 +17,7 @@ class NewsController {
 
     // [GET] /news/:slug
     show(req, res, next) {
-        BlogPost.findOne({ slug: req.params.slug})
+        BlogPost.findOne({ slug: req.params.slug })
             .then(post => {
                 res.render('news/show', { post: mongooseToObject(post) });
             })
@@ -35,13 +35,13 @@ class NewsController {
 
         blog.save()
             .then(() => res.redirect('/me/stored/posts'))
-            .catch(err => {})
+            .catch(err => { })
     }
 
     // [GET] /news/:id/edit
     edit(req, res, next) {
         BlogPost.findById(req.params.id)
-            .then(post => res.render('news/edit', { 
+            .then(post => res.render('news/edit', {
                 post: mongooseToObject(post)
             }))
             .catch(next)
@@ -49,7 +49,7 @@ class NewsController {
 
     // [PUT] /news/:id/
     update(req, res, next) {
-        BlogPost.updateOne({ _id: req.params.id}, req.body)
+        BlogPost.updateOne({ _id: req.params.id }, req.body)
             .then(() => res.redirect('/me/stored/posts'))
             .catch(next)
     }
@@ -60,17 +60,17 @@ class NewsController {
     //         .then(() => res.redirect('back'))
     //         .catch(next)
     // }
-    
+
     // [DELETE] /news/:id/ Soft Delete
     delete(req, res, next) {
-        BlogPost.delete({ _id: req.params.id} )
+        BlogPost.delete({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next)
     }
 
     // [PATCH] /news/:id/restore
     restore(req, res, next) {
-        BlogPost.restore({ _id: req.params.id} )
+        BlogPost.restore({ _id: req.params.id })
             .then(() => res.redirect('back'))
             .catch(next)
     }
