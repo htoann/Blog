@@ -1,2 +1,6 @@
+
+
 ### Some ideas are based on medium.com, genk.vn, facebook.com, ...
+### and thanks to F8, WDV,...
+
 // npm start
