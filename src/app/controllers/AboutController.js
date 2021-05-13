@@ -1,5 +1,5 @@
 class AboutController {
-  About(req, res) {
+  getAbout(req, res) {
     res.render("about");
   }
 }

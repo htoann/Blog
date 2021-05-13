@@ -29,9 +29,9 @@
                 <td class="text-truncate" style="max-width: 200px">{{ this.title }}</td>
                 <td>{{ this.categories }}</td>
                 <td>13:22 02/05/2021</td>
-                <td><a href="/news/{{this._id}}/edit" type="button" class="btn btn-info"
+                <td><a href="/blog/{{this._id}}/edit" type="button" class="btn btn-info"
                         style="margin-right: -40px">Edit</a></td>
-                <td><a href="/news/{{this._id}}/delete" type="button" class="btn btn-secondary" data-id="{{this._id}}"
+                <td><a href="/blog/{{this._id}}/delete" type="button" class="btn btn-secondary" data-id="{{this._id}}"
                         data-bs-toggle="modal" data-bs-target="#deletePost" style="margin-right: -55px">Delete</button>
                 </td>
             </tr>
@@ -40,7 +40,7 @@
             <tr>
                 <td colspan="6" class="text-center">
                     <h4>You don't have any posts yet</h4>
-                    <a href="/news/create" class="btn btn-success mt-4">Create A New Post Now</a>
+                    <a href="/blog/create" class="btn btn-success mt-4">Create A New Post Now</a>
                 </td>
 
             </tr>
@@ -90,7 +90,7 @@
 
     // When Delete Post Button Clicked
     btnDeletePost.addEventListener('click', function () {
-        deleteForm.action = '/news/' + postId + '?_method=DELETE'
+        deleteForm.action = '/blog/' + postId + '?_method=DELETE'
         deleteForm.submit()
     })
 </script>

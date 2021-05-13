@@ -1,9 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const meController = require('../app/controllers/MeController')
+const meController = require("../app/controllers/MeController");
 
-router.get('/stored/posts', meController.stored);
-router.get('/trash/posts', meController.trash);
+router.get("/stored/posts", meController.getStored);
+router.get("/trash/posts", meController.getTrash);
 
 module.exports = router;

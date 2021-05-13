@@ -1,12 +1,12 @@
 <title>Posts</title>
-<link rel="stylesheet" href="/css/news.css">
+<link rel="stylesheet" href="/css/blog.css">
 <h2 class="title-main-page">Posts</h2>
 <hr>
 
 <div>
     {{#each posts}}
     <div class="card acard-item" style="width: 680px">
-        <a class="card-item-title" href="/news/{{this.slug}}">
+        <a class="card-item-title" href="/blog/{{this.slug}}">
             <h3 class="card-header">{{ this.title }}</h3>
         </a>
 
@@ -30,7 +30,7 @@
             <tr>
                 <td colspan="6">
                     <h4>No Posts Available</h4>
-                    <a href="/news/create" class="btn btn-success mt-4">Create A New Post Now</a>
+                    <a href="/blog/create" class="btn btn-success mt-4">Create A New Post Now</a>
                 </td>
 
             </tr>

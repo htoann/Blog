@@ -1,19 +1,19 @@
-const authRouter = require('./Auth');
-const meRouter = require('./Me');
-const newsRouter = require('./News');
-const siteRouter = require('./Site');
-const aboutRouter = require('./about');
+const authRouter = require("./Auth");
+const meRouter = require("./Me");
+const blogRouter = require("./Blog");
+const siteRouter = require("./Site");
+const aboutRouter = require("./About");
 
 function route(app) {
-    app.use('/auth', authRouter);
+  app.use("/auth", authRouter);
 
-    app.use('/me', meRouter);
+  app.use("/me", meRouter);
 
-    app.use('/news', newsRouter);
+  app.use("/blog", blogRouter);
 
-    app.use('/about', aboutRouter);
+  app.use("/about", aboutRouter);
 
-    app.use('/', siteRouter);
+  app.use("/", siteRouter);
 }
 
 module.exports = route;

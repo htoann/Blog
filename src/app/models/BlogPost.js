@@ -6,7 +6,7 @@ const mongooseDelete = require("mongoose-delete");
 const BlogPost = new Schema(
   {
     title: { type: String, default: "New Post", required: true },
-    author: String,
+    author: { type: String, default: "Anonymous" },
     img: String,
     content: String,
     categories: String,

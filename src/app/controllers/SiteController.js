@@ -1,9 +1,9 @@
 class SiteController {
-  home(req, res) {
+  getHome(req, res) {
     res.render("home");
   }
 
-  profile(req, res) {
+  getProfile(req, res) {
     if (req.isAuthenticated()) res.render("profile", { user: req.user });
     else res.redirect("/auth/login");
   }

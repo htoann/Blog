@@ -4,7 +4,7 @@ const { mongooseToObject } = require("../../until/mongoose");
 
 class MeController {
   // [GET] /me/stored/posts
-  stored(req, res, next) {
+  getStored(req, res, next) {
     Promise.all([BlogPost.find({}), BlogPost.countDocumentsDeleted()])
       .then(([posts, deletedCount]) =>
         res.render("me/stored-post", {
@@ -16,7 +16,7 @@ class MeController {
   }
 
   // [GET] /me/stored/posts
-  trash(req, res, next) {
+  getTrash(req, res, next) {
     BlogPost.findDeleted({})
       .then((posts) =>
         res.render("me/trash-post", {

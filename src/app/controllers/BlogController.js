@@ -1,0 +1,87 @@
+const BlogPost = require("../models/BlogPost");
+const { multipleMongooseToObject } = require("../../until/mongoose");
+const { mongooseToObject } = require("../../until/mongoose");
+const User = require("../models/User.js");
+
+class BlogController {
+  index(req, res, next) {
+    BlogPost.find({})
+      .then((posts) => {
+        res.render("blog", {
+          posts: multipleMongooseToObject(posts),
+        });
+      })
+      .catch(next);
+  }
+
+  // [GET] /blog/:slug
+  getDetail(req, res, next) {
+    BlogPost.findOne({ slug: req.params.slug })
+      .then((post) => {
+        res.render("news/detail", { post: mongooseToObject(post) });
+      })
+      .catch(next);
+  }
+
+  // [GET] /blog /create
+  getCreate(req, res, next) {
+    if (req.isAuthenticated())
+      res.render("news/create", { author: req.user.username });
+    else res.redirect("/auth/login");
+  }
+
+  // [POST] /blog /store
+  postStore(req, res, next) {
+    const blog = new BlogPost(req.body);
+    blog
+      .save()
+      .then(() => res.redirect("/me/stored/posts"))
+      .catch((err) => {});
+  }
+
+  // [GET] /blog/:id/edit
+  getEdit(req, res, next) {
+    BlogPost.findById(req.params.id)
+      .then((post) =>
+        res.render("news/edit", {
+          post: mongooseToObject(post),
+        })
+      )
+      .catch(next);
+  }
+
+  // [PUT] /blog/:id/
+  putUpdate(req, res, next) {
+    BlogPost.updateOne({ _id: req.params.id }, req.body)
+      .then(() => res.redirect("/me/stored/posts"))
+      .catch(next);
+  }
+
+  // {deleteOne} to delete forever
+
+  // [DELETE] /blog/:id/ Soft Delete
+  deleteDelete(req, res, next) {
+    if (req.isAuthenticated()) {
+      BlogPost.findById(req.params.id)
+        .then((post) => {
+          console.log(post.author);
+          if (post.author == req.user.username) {
+            post.delete();
+            res.redirect("back");
+          } else {
+            res.redirect("/me/stored/posts");
+          }
+        })
+        .catch(next);
+    } else res.redirect("/me/stored/posts");
+  }
+
+  // [PATCH] /blog/:id/restore
+  patchRestore(req, res, next) {
+    BlogPost.restore({ _id: req.params.id })
+      .then(() => res.redirect("back"))
+      .catch(next);
+  }
+}
+
+module.exports = new BlogController();

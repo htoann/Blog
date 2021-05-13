@@ -1,115 +1,100 @@
 <html lang="en">
 
-  <head>
-    <title>Deleted Posts</title>
-  </head>
+<head>
+  <title>Deleted Posts</title>
+</head>
 
-  <body>
-    <div class="d-flex justify-content-between">
-      <h2 class="title-main-page">My Posts</h2>
-      <a href="/me/stored/posts" class="btn btn-primary mt-auto"><i
-          class="fas fa-undo-alt icon-title"
-        ></i>Back</a>
-    </div>
-    <table class="table table-hover mt-4">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Category</th>
-          <th scope="col">Deleted At</th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each posts}}
-          <tr>
-            <th scope="row">{{sum @index 1}}</th>
-            <td class="text-truncate">{{this.title}}</td>
-            <td>{{this.categories}}</td>
-            <td> 13:22 02/05/2021 </td>
-            <td>
-              <a
-                href="#"
-                class="btn btn-success btn-restore"
-                data-id="{{this._id}}"
-              >
-                Restore
-              </a>
-            </td>
-          </tr>
+<body>
+  <div class="d-flex justify-content-between">
+    <h2 class="title-main-page">My Posts</h2>
+    <a href="/me/stored/posts" class="btn btn-primary mt-auto"><i class="fas fa-undo-alt icon-title"></i>Back</a>
+  </div>
+  <table class="table table-hover mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Deleted At</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each posts}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td class="text-truncate">{{this.title}}</td>
+        <td>{{this.categories}}</td>
+        <td> 13:22 02/05/2021 </td>
+        <td>
+          <a href="#" class="btn btn-success btn-restore" data-id="{{this._id}}">
+            Restore
+          </a>
+        </td>
+      </tr>
 
-        {{else}}
-          <tr>
-            <td colspan="6" class="text-center">
-              <h4>Empty Trash</h4>
-              <a href="/news" class="btn btn-primary mt-4">All Posts</a>
-            </td>
+      {{else}}
+      <tr>
+        <td colspan="6" class="text-center">
+          <h4>Empty Trash</h4>
+          <a href="/blog" class="btn btn-primary mt-4">All Posts</a>
+        </td>
 
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
 
-    {{! Confirm Delete }}
+  {{! Confirm Delete }}
 
-    <div
-      class="modal fade"
-      id="deletePost"
-      tabindex="-1"
-      aria-labelledby="deletePost"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Delete Post</h5>
-            <button
-              type="button"
-              class="btn-close"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            ></button>
-          </div>
-          <div class="modal-body">
-            <p>Do you want to delete this post? </p>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >Cancel</button>
-            <button
-              id="btn-delete-post"
-              type="button"
-              class="btn btn-danger"
-            >Delete</button>
-          </div>
+  <div class="modal fade" id="deletePost" tabindex="-1" aria-labelledby="deletePost" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete Post</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p>Do you want to delete this post? </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button id="btn-delete-post" type="button" class="btn btn-danger">Delete</button>
         </div>
       </div>
     </div>
-  </body>
+  </div>
+</body>
 
-  {{! Delete Hiden Form }}
+{{! Delete Hiden Form }}
 
-  <form name="delete-post-form" method="POST"></form>
-  <form name="restore-post-form" method="POST"></form>
+<form name="delete-post-form" method="POST"></form>
+<form name="restore-post-form" method="POST"></form>
 
 </html>
 
 <script>
-  var exampleModal = document.getElementById('deletePost'); let postId; let
-  deleteForm = document.forms['delete-post-form']; let restoreForm =
-  document.forms['restore-post-form']; let btnDeletePost =
-  document.getElementById('btn-delete-post'); var btnRestore =
-  $('.btn-restore'); // When Dialog Confirm Clicked
-  exampleModal.addEventListener('show.bs.modal', function (event) { let button =
-  event.relatedTarget; postId = button.getAttribute('data-id'); }) // When
-  Delete Post Button Clicked btnDeletePost.addEventListener('click', function ()
-  { deleteForm.action = '/news/' + postId + '?_method=DELETE';
-  deleteForm.submit(); }); btnRestore.click(function (e) { e.preventDefault();
-  let postId = $(this).data('id'); restoreForm.action = '/news/' + postId +
-  '/restore?_method=PATCH'; restoreForm.submit(); })
+  var exampleModal = document.getElementById('deletePost'); let postId;
+  let deleteForm = document.forms['delete-post-form'];
+  let restoreForm = document.forms['restore-post-form'];
+  let btnDeletePost = document.getElementById('btn-delete-post');
+  var btnRestore = $('.btn-restore');
+
+  // When Dialog Confirm Clicked
+  exampleModal.addEventListener('show.bs.modal', function (event) {
+    let button = event.relatedTarget; postId = button.getAttribute('data-id');
+  })
+
+  // When Delete Post Button Clicked
+  btnDeletePost.addEventListener('click', function () {
+    deleteForm.action = '/blog/' + postId + '?_method=DELETE';
+    deleteForm.submit();
+  });
+  btnRestore.click(function (e) {
+    e.preventDefault();
+    let postId = $(this).data('id');
+    restoreForm.action = '/blog/' + postId + '/restore?_method=PATCH';
+    restoreForm.submit();
+  })
 </script>
