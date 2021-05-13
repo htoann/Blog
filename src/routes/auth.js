@@ -1,10 +1,9 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const authController = require('../app/controllers/AuthController');
+const authController = require("../app/controllers/AuthController");
 router.use(express.urlencoded({ extended: true }));
 
-router.use(express.urlencoded({ extended: true }));
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);
 router.get("/signup", authController.getSignup);

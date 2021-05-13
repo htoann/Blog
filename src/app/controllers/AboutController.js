@@ -1,8 +1,7 @@
 class AboutController {
-    // [GET] /about
-    index(req, res) {
-        res.render('about');
-    }
+  About(req, res) {
+    res.render("about");
+  }
 }
 
-module.exports = new AboutController;
+module.exports = new AboutController();

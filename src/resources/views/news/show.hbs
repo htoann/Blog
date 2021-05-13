@@ -1,76 +1,74 @@
-<!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ post.title }}</title>
-    <link rel="stylesheet" href="/css/post.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{post.title}}</title>
+    <link rel="stylesheet" href="/css/post.css" />
+  </head>
 
-<body>
+  <body>
     <div class="post">
-        <div class="post-title d-flex justify-content-between">
-            <h2 class="post-title">
-                {{ post.title }}
-            </h2>
+      <div class="post-title d-flex justify-content-between">
+        <h2 class="post-title">
+          {{post.title}}
+        </h2>
 
-            <div class="dropdown">
-                <button class="btn btn-primary post-menu" type="button" id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-ellipsis-h"></i>
-                </button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="/news/{{ post._id }}/edit">
-                            <i class="fas fa-pen icon-title"></i>Edit Post</a></li>
-                    <li><button class="dropdown-item dropdown-item-delete"><i class="fas fa-trash-alt icon-title"
-                                data-id="{{post._id}}"></i>
-                            Delete
-                        </button></li>
-                </ul>
-            </div>
-
+        <div class="dropdown">
+          <button
+            class="btn btn-primary post-menu"
+            type="button"
+            id="dropdownMenuButton1"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <i class="fas fa-ellipsis-h"></i>
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+            <li><a class="dropdown-item" href="/news/{{post._id}}/edit">
+                <i class="fas fa-pen icon-title"></i>Edit Post</a></li>
+            <li><button class="dropdown-item dropdown-item-delete"><i
+                  class="fas fa-trash-alt icon-title"
+                  data-id="{{post._id}}"
+                ></i>
+                Delete
+              </button></li>
+          </ul>
         </div>
 
-        <hr class="post-hr" style="height: 5px">
+      </div>
 
-        <div class="post-author">
-            <img src="../img/author.webp" alt="" class="post-author-img">
-            <p class="post-author-link">{{ post.author }}</p>
-            <button type="button" class="btn btn-primary">Follow</button>
-        </div>
+      <hr class="post-hr" style="height: 5px" />
 
-        <p class="post-description">
-            {{ post.description }}
-        </p>
+      <div class="post-author">
+        <img src="../img/author.webp" alt="" class="post-author-img" />
+        <p class="post-author-link">{{post.author}}</p>
+        <button type="button" class="btn btn-primary">Follow</button>
+      </div>
 
-        <p class="post-picture">
-            <img src="{{ post.img }}">
-        </p>
+      <p class="post-description">
+        {{post.description}}
+      </p>
 
-        <p class="post-content">
-            {{ post.content }}
-        </p>
+      <p class="post-picture">
+        <img src="{{post.img}}" />
+      </p>
 
-        <hr class="mt-4 mb-4 post-hr" style="height: 5px">
+      <p class="post-content">
+        {{post.content}}
+      </p>
 
-        <p class="post-creatat">
-            {{ post.createdAt }}
-        </p>
+      <hr class="mt-4 mb-4 post-hr" style="height: 5px" />
+
+      <p class="post-creatat">
+        {{post.createdAt}}
+      </p>
 
     </div>
 
-
     <form name="delete-post-form" method="POST"></form>
 
-</body>
+  </body>
 
 </html>
-
-<script>
-    let x = document.querySelector('.dropdown-item-delete')
-    document.querySelector('.dropdown-item-delete').addEventListener('click', function () {
-        alert("Please go to \"My Posts\" to delete this post")
-    })
-</script>

@@ -1,45 +1,54 @@
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Profile</title>
-  <link rel="stylesheet" href="/css/profile.css" />
-  <link rel="stylesheet" href="/css/login.css" />
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <link rel="stylesheet" href="/css/profile.css" />
+    <link rel="stylesheet" href="/css/home.css" />
+  </head>
 
-<body>
-  <div id="wave"></div>
+  <body>
+    <div id="wave"></div>
 
-  <div>
-    <div class="ui-bg-cover ui-bg-overlay-container text-white" style="background-color: #87CEFA;">
-      <div class="ui-bg-overlay bg-dark opacity-50"></div>
-      <div class="container">
-        <div class="text-center py-5">
-          <img src="/img/profile.png" alt="" class="ui-w-100 rounded-circle" />
-    
-          <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
-            <h4 class="font-weight-bold my-4">Username: {{ user.username }}</h4>
-            <div class="opacity-75 mb-4">
-              <h5>Email : {{ user.email }}</h5>
+    <div>
+      <div
+        class="ui-bg-cover ui-bg-overlay-container text-white"
+        style="background-color: #87CEFA;"
+      >
+        <div class="ui-bg-overlay bg-dark opacity-50"></div>
+        <div class="container">
+          <div class="text-center py-5">
+            <img
+              src="/img/profile.png"
+              alt=""
+              class="ui-w-100 rounded-circle"
+            />
+
+            <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
+              <h4 class="font-weight-bold my-4">Username: {{user.username}}</h4>
+              <div class="opacity-75 mb-4">
+                <h5>Email : {{user.email}}</h5>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="ui-bg-overlay-container">
+        <div class="ui-bg-overlay bg-dark opacity-25"></div>
+        <ul
+          class="nav nav-tabs tabs-alt justify-content-center border-transparent"
+        >
+          <li class="nav-item">
+            <a class="nav-link text-white py-4" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white py-4" href="/auth/logout">Log Out</a>
+          </li>
+        </ul>
+      </div>
     </div>
-    <div class="ui-bg-overlay-container">
-      <div class="ui-bg-overlay bg-dark opacity-25"></div>
-      <ul class="nav nav-tabs tabs-alt justify-content-center border-transparent">
-        <li class="nav-item">
-          <a class="nav-link text-white py-4" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white py-4" href="/auth/logout">Log Out</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</body>
+  </body>
 
 </html>
