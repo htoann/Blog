@@ -1,6 +1,7 @@
 const BlogPost = require("../models/BlogPost");
 const { multipleMongooseToObject } = require("../../until/mongoose");
 const { mongooseToObject } = require("../../until/mongoose");
+const User = require("../models/User");
 
 class MeController {
   // [GET] /me/stored/posts

@@ -41,13 +41,19 @@ class BlogController {
 
   // [GET] /blog/:id/edit
   getEdit(req, res, next) {
-    BlogPost.findById(req.params.id)
-      .then((post) =>
-        res.render("news/edit", {
-          post: mongooseToObject(post),
+    if (req.isAuthenticated()) {
+      BlogPost.findById(req.params.id)
+        .then((post) => {
+          if (post.author == req.user.username) {
+            return res.render("news/edit", {
+              post: mongooseToObject(post),
+            });
+          } else {
+            res.redirect("back");
+          }
         })
-      )
-      .catch(next);
+        .catch(next);
+    } else res.redirect("back");
   }
 
   // [PUT] /blog/:id/
@@ -64,16 +70,15 @@ class BlogController {
     if (req.isAuthenticated()) {
       BlogPost.findById(req.params.id)
         .then((post) => {
-          console.log(post.author);
           if (post.author == req.user.username) {
             post.delete();
             res.redirect("back");
           } else {
-            res.redirect("/me/stored/posts");
+            res.redirect("back");
           }
         })
         .catch(next);
-    } else res.redirect("/me/stored/posts");
+    } else res.redirect("back");
   }
 
   // [PATCH] /blog/:id/restore
