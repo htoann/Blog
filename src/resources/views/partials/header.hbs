@@ -21,12 +21,15 @@
         <li class="nav-item">
           <a class="nav-link" href="/about">About Me</a>
         </li>
+        <li class="nav-item">
+          <p readonly class="nav-link nav-link-welcome"></p>
+        </li>
 
       </ul>
     </div>
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item dropdown nav-item-dropdown-user">
-        <img src="/img/user2.jpg" class="user-img">
+        <img src="/img/user5.png" class="user-img">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">
           User
@@ -54,3 +57,15 @@
     </ul>
   </div>
 </nav>
+
+<script>
+  let hourz = new Date().getHours();
+  let helloz = document.querySelector('.nav-link-welcome');
+  if (hourz >= 0 && hourz < 11) {
+    helloz.innerHTML = "Good Morning";
+  }
+  else if (hourz >= 11 && hourz <= 18) {
+    helloz.innerHTML = "Good Afternoon";
+  }
+  helloz.innerHTML = "Good Evening";
+</script>
