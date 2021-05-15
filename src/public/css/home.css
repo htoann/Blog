@@ -1,72 +1,59 @@
-@keyframes mygradient {
-  0% {
-    background-position: 0%;
-  }
-
-  100% {
-    background-position: 100%;
-  }
-}
-
-body {
+/* body {
+  background-color: rgb(38, 85, 139);
+} */
+.hover {
   overflow: hidden;
-  margin: 0px;
-  background: linear-gradient(
-    90deg,
-    rgb(245, 127, 23),
-    rgb(233, 30, 99),
-    rgb(156, 39, 176),
-    rgb(63, 81, 181)
-  );
-  height: 100vh;
-  width: 100vw;
-  background-size: 600% 100%;
-  background-repeat: no-repeat;
-  animation: mygradient 24s linear infinite alternate;
+  position: relative;
+  width: 120%;
+  height: 865px;
+  margin-left: -10%;
 }
 
-@keyframes wave {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  50% {
-    transform: rotate(90deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-#wave {
+.hover-overlay {
+  width: 100%;
   height: 100%;
-  overflow: hidden;
+  position: absolute;
+  transition: all 0.4s;
 }
 
-#wave:before {
-  content: "";
-  overflow: hidden;
+.hover img {
+  width: 100%;
   position: absolute;
-  bottom: 12%;
-  left: -250vw;
-  width: 600vw;
-  height: 600vw;
-  background: rgba(0, 0, 0, 0.375);
-  border-radius: 48% 52% 52% 48% / 48% 52% 48% 52%;
-  animation: wave 9s ease-in-out infinite;
-  animation-delay: -3s;
+  top: 0;
+  left: 0;
+  transition: all 0.3s;
 }
 
-#wave:after {
-  content: "";
-  overflow: hidden;
+.hover-5-title {
   position: absolute;
-  bottom: 12%;
-  left: -250vw;
-  width: 600vw;
-  height: 600vw;
-  background: rgba(0, 0, 0, 0.375);
-  border-radius: 48% 52% 52% 48% / 48% 52% 48% 52%;
-  animation: wave 9s linear infinite;
+  bottom: 60%;
+  transition: all 0.5s;
+  padding: 2rem 3rem;
+  font-size: 40px;
+  text-align: center;
+  margin: auto;
+}
+
+.hover-5-title a {
+  transition: all 0.4s;
+  opacity: 0;
+  border: 1px solid;
+  /* background-color: #47c650; */
+  /* background-color: rgb(20, 74, 119); */
+  color: white;
+  text-decoration: none;
+  font-size: 30px;
+  margin-top: -10px;
+}
+
+.hover-5:hover .hover-5-title {
+  bottom: 50%;
+}
+
+.hover-5:hover .hover-5-title a {
+  opacity: 1;
+}
+
+.hover-5-content {
+  margin-left: 25%;
 }

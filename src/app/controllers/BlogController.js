@@ -18,7 +18,7 @@ class BlogController {
   getDetail(req, res, next) {
     BlogPost.findOne({ slug: req.params.slug })
       .then((post) => {
-        res.render("news/detail", { post: mongooseToObject(post) });
+        res.render("blog/detail", { post: mongooseToObject(post) });
       })
       .catch(next);
   }
@@ -26,7 +26,7 @@ class BlogController {
   // [GET] /blog /create
   getCreate(req, res, next) {
     if (req.isAuthenticated())
-      res.render("news/create", { author: req.user.username });
+      res.render("blog/create", { author: req.user.username });
     else res.redirect("/auth/login");
   }
 
@@ -45,7 +45,7 @@ class BlogController {
       BlogPost.findById(req.params.id)
         .then((post) => {
           if (post.author == req.user.username) {
-            return res.render("news/edit", {
+            return res.render("blog/edit", {
               post: mongooseToObject(post),
             });
           } else {

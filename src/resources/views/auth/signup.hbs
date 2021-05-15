@@ -1,43 +1,30 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
-    <link rel="stylesheet" href="/css/login.css" />
-  </head>
-  <body>
-    <div class="card">
-      <form action="/auth/signup" method="POST" class="box">
-        <h1>Sign Up</h1>
-        {{#if message}}
-          <p id="message" class="text-danger"> {{message}} </p>
-        {{/if}}
-        <p class="text-muted">Create a new account</p>
-        <input
-          type="text"
-          name="email"
-          placeholder="Email"
-          pattern="^([0-9a-zA-Z]([-.\\\\\\\\\\\\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
-          required
-        />
-        <input
-          type="text"
-          id="username"
-          name="username"
-          placeholder="Username"
-          required
-        />
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="Password"
-          required
-        />
-        <input type="submit" value="Sign Up" />
-        <button><a href="/auth/login">Login</a></button>
-      </form>
-    </div>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign Up</title>
+  <link rel="stylesheet" href="/css/login.css" />
+</head>
+
+<body>
+  <div class="card">
+    <form action="/auth/signup" method="POST" class="box">
+      <h1>Sign Up</h1>
+      {{#if message}}
+      <p id="message" class="text-danger"> {{message}} </p>
+      {{/if}}
+      <p class="text-muted">Create a new account</p>
+      <input type="text" name="email" placeholder="Email"
+        pattern="^([0-9a-zA-Z]([-.\\\\\\\\\\\\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
+        required />
+      <input type="text" id="username" name="username" placeholder="Username" required />
+      <input type="password" id="password" name="password" placeholder="Password" required />
+      <input type="submit" value="Sign Up" />
+      <button><a href="/auth/login">Login</a></button>
+    </form>
+  </div>
+</body>
+
 </html>

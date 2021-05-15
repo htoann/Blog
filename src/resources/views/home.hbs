@@ -1,15 +1,42 @@
 <title>Home</title>
 <link rel="stylesheet" href="/css/home.css" />
 
-<div id="wave"></div>
+{{! <div id="wave"></div> }}
 
 <div class="homepage">
-  <div class="alert alert-primary mt-3" role="alert">
+  {{! <div class="alert alert-primary mt-3" role="alert">
     <h1>Home Page</h1>
-  </div>
+  </div> }}
 
-  {{! <img style="width: 1295px" src="/img/home1.png" alt=""> }}
+  {{! <img style="width: 1295px" src="/img/home2.jpg"> }}
 
   {{! https://pbs.twimg.com/media/DzrYahjXQAE44Sd.jpg }}
 
+  <div class="homepage">
+    <div class="hover hover-5 text-white rounded">
+      <img src="/img/sov.jpg" />
+      <div class="hover-overlay"></div>
+      <div class="hover-5-content">
+        <div class="hover-5-title text-uppercase font-weight-light mb-0">
+          <p>Welcome To The Home Page</p>
+          <br>
+          <strong class="font-weight-bold text-white"></strong>
+          <a class="btn btn-outline-light btn-lg" href="/blog">View Blogs</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
+
+<script>
+  let hour = new Date().getHours();
+  let hello = document.querySelector('.font-weight-bold');
+  if (hour >= 0 && hour < 11) {
+    hello.innerHTML = "Good Morning";
+  }
+  else if (hour >= 11 && hour <= 18) {
+    hello.innerHTML = "Good Afternoon";
+  }
+  hello.innerHTML = "Good Evening";
+</script>
