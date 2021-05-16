@@ -1,5 +1,5 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark my-header">
-  <div class="container-fluid container p-2">
+  <div class="container-fluid container mt-2">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
       aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -22,15 +22,18 @@
           <a class="nav-link" href="/about">About Me</a>
         </li>
         <li class="nav-item">
-          <p readonly class="nav-link nav-link-welcome"></p>
+          <p class="nav-link text-white mb-4">|</p>
+        </li>
+        <li class="nav-item">
+          <p class="nav-link nav-link-welcome disabled text-white"></p>
         </li>
 
       </ul>
     </div>
-    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav me-auto mb-3">
       <li class="nav-item dropdown nav-item-dropdown-user">
         <img src="/img/user5.png" class="user-img">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+        <a class="nav-link dropdown-toggle vippro" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
           aria-expanded="false">
           User
         </a>
@@ -61,11 +64,11 @@
 <script>
   let hourz = new Date().getHours();
   let helloz = document.querySelector('.nav-link-welcome');
-  if (hourz >= 0 && hourz < 11) {
+  if (hourz >= 0 && hourz <= 11) {
     helloz.innerHTML = "Good Morning";
   }
-  else if (hourz >= 11 && hourz <= 18) {
+  else if (hourz > 11 && hourz <= 18) {
     helloz.innerHTML = "Good Afternoon";
   }
-  helloz.innerHTML = "Good Evening";
+  else helloz.innerHTML = "Good Evening";
 </script>

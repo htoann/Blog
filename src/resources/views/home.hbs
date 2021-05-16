@@ -6,7 +6,7 @@
 <div class="hover hover-5 text-white rounded">
   <div class="hover-5-content">
     <div class="hover-5-title text-uppercase font-weight-light mb-0">
-      <h1>Welcome To The Home Page</h1>
+      <p>Welcome To The Home Page</p>
       <br>
       <strong class="font-weight-bold text-white"></strong>
       <a class="btn btn-outline-light btn-lg" href="/blog">View Blogs</a>
@@ -17,11 +17,11 @@
 <script>
   let hour = new Date().getHours();
   let hello = document.querySelector('.font-weight-bold');
-  if (hour >= 0 && hour < 11) {
+  if (hour >= 0 && hour <= 11) {
     hello.innerHTML = "Good Morning";
   }
-  else if (hour >= 11 && hour <= 18) {
+  else if (hour > 11 && hour <= 18) {
     hello.innerHTML = "Good Afternoon";
   }
-  hello.innerHTML = "Good Evening";
+  else hello.innerHTML = "Good Evening";
 </script>
