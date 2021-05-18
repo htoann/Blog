@@ -1,16 +1,18 @@
 <head>
   <title>Login</title>
   <link rel="stylesheet" href="/css/login.css" />
+  <link rel="stylesheet" href="/css/wave.css" />
 </head>
 
 <body>
+  <div id="wave"></div>
   <div class="card">
     <form action="/auth/login" method="POST" class="box">
       <h1>Login</h1>
       {{#if messages.error}}
-        <p id="message" class="text-danger">
-          {{messages.error}}
-        </p>
+      <p id="message" class="text-danger">
+        {{messages.error}}
+      </p>
       {{/if}}
       <p class="text-muted"> Please enter your login and password!</p>
       <input type="text" name="username" placeholder="Username" />
