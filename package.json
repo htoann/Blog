@@ -2,9 +2,9 @@
   "name": "blog",
   "version": "1.0.0",
   "description": "",
-  "main": "src/Sever",
+  "main": "src/app.js",
   "scripts": {
-    "start": "nodemon --inspect src/Sever",
+    "start": "node src/app.js",
     "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
