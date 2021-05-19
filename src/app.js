@@ -9,8 +9,8 @@ const passport = require("passport");
 const session = require("express-session");
 const passportConfig = require("./config/passport-config");
 const MongoDBStore = require("connect-mongodb-session")(session);
-var route = require("./routes/index.js");
 require("dotenv").config();
+var route = require("./routes/index.js");
 
 let mongodbURI =
   "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority";
@@ -78,10 +78,6 @@ app.engine(
 
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "resources/views"));
-
-// app.listen(port, () => {
-//   console.log(`App listening at http://localhost:${port}`);
-// });
 
 // Routes Init
 route(app);
