@@ -4,13 +4,13 @@ const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const app = express();
-const route = require("./routes/Index.js");
 const flash = require("express-flash");
 const passport = require("passport");
 const session = require("express-session");
 const passportConfig = require("./config/passport-config");
 const authRouter = require("./routes/Auth");
 const MongoDBStore = require("connect-mongodb-session")(session);
+var route = require("./routes/Index.js");
 require("dotenv").config();
 
 let mongodbURI =
