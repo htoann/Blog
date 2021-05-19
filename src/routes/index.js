@@ -1,8 +1,8 @@
-const authRouter = require("./Auth");
-const meRouter = require("./Me");
-const blogRouter = require("./Blog");
-const siteRouter = require("./Site");
-const aboutRouter = require("./About");
+var authRouter = require("./Auth");
+var meRouter = require("./Me");
+var blogRouter = require("./Blog");
+var siteRouter = require("./Site");
+var aboutRouter = require("./About");
 
 function route(app) {
   app.use("/auth", authRouter);
