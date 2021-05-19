@@ -44,7 +44,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: new MongoDBStore({
-      url: "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority",
+      uri: "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority",
       collection: "sessions",
       connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
     }),
