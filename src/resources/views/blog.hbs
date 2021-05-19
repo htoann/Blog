@@ -1,11 +1,11 @@
 <title>Blogs</title>
 <link rel="stylesheet" href="/css/blog.css">
-<h2 class="title-main-page">Blogs</h2>
+<h2 class="title-main-page">All Blogs</h2>
 <hr>
 
-<div>
+<div class="blogs">
     {{#each posts}}
-    <div class="card acard-item" style="width: 680px">
+    <div class="card acard-item" style="width: 700px">
         <a class="card-item-title" href="/blog/{{this.slug}}">
             <h3 class="card-header">{{ this.title }}</h3>
         </a>
