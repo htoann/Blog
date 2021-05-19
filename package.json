@@ -1,11 +1,11 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "blog",
   "main": "src/app.js",
   "scripts": {
+    "dev": "nodemon --inspect src/app.js",
     "start": "node src/app.js",
-    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,9 @@
   ],
   "author": "Tran Huu Toan",
   "license": "ISC",
+  "engines": {
+    "node": "14.16.0"
+  },
   "bugs": {
     "url": "https://github.com/HuuToan02/nodejs_blog/issues"
   },
@@ -28,7 +31,7 @@
     "connect-mongodb-session": "^2.4.1",
     "cors": "^2.8.5",
     "dotenv": "^9.0.2",
-    "express": "^4.17.1",
+    "express": "^4.16.4",
     "express-flash": "0.0.2",
     "express-handlebars": "^5.3.0",
     "express-session": "^1.17.1",
@@ -39,6 +42,7 @@
     "nodemon": "^2.0.7",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "routes": "^2.1.0",
     "session": "^0.1.0",
     "session-file-store": "^1.5.0"
   },
