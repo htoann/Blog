@@ -8,9 +8,8 @@ const flash = require("express-flash");
 const passport = require("passport");
 const session = require("express-session");
 const passportConfig = require("./config/passport-config");
-const authRouter = require("./routes/Auth");
 const MongoDBStore = require("connect-mongodb-session")(session);
-var route = require("./routes/Index.js");
+var route = require("./routes/index.js");
 require("dotenv").config();
 
 let mongodbURI =
