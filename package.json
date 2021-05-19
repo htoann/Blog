@@ -1,11 +1,11 @@
 {
   "name": "blog",
   "version": "1.0.0",
-  "description": "",
+  "description": "blog",
   "main": "src/app.js",
   "scripts": {
+    "dev": "nodemon --inspect src/app.js",
     "start": "node src/app.js",
-    "watch": "node-sass --watch src/resources/scss/ --output src/public/css/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,9 @@
   ],
   "author": "Tran Huu Toan",
   "license": "ISC",
+  "engines": {
+    "node": "14.16.0"
+  },
   "bugs": {
     "url": "https://github.com/HuuToan02/nodejs_blog/issues"
   },
