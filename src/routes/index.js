@@ -1,6 +1,6 @@
 var authRouter = require("./auth");
 var meRouter = require("./me");
-var blogRouter = require("./blog");
+var blogRouter = require("/blog");
 var siteRouter = require("./site");
 var aboutRouter = require("./about");
 
