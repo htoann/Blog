@@ -1,12 +1,15 @@
+form {
+  width: 40%;
+}
 .post {
-  cursor: auto;
+  cursor: auto !important;
   font-size: 21px;
   line-height: 32px;
   word-break: break-word;
   font-weight: 400;
   width: 800px;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  margin: auto;
+  margin-left: 50%;
 }
 .post-title {
   line-height: 60px;
@@ -33,7 +36,6 @@
 }
 .post-author-link:hover {
   text-decoration: underline;
-  cursor: pointer;
 }
 .post-description {
   line-height: 28px;
