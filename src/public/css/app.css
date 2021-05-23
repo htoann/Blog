@@ -1,3 +1,9 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
 .title-main-page {
   margin-top: 25px;
 }
@@ -5,7 +11,6 @@
 .navbar {
   background-color: #425674;
   width: 100%;
-  box-sizing: border-box;
 }
 
 .user-img {
@@ -18,7 +23,7 @@
   display: flex;
 }
 
-/* .footer {
+.footer {
   background-color: #425674;
   height: 50px;
   width: 100%;
@@ -33,7 +38,7 @@
   justify-content: center;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
-} */
+}
 
 .alert-primary {
   height: 80px;
@@ -70,8 +75,4 @@
   transition: 0.3s;
   font-size: 25px;
   font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-}
-
-.about-text:hover {
-  cursor: default;
 }
