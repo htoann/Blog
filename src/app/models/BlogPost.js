@@ -2,12 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const slug = require("mongoose-slug-generator");
 const mongooseDelete = require("mongoose-delete");
-const { format } = require("morgan");
+// const { format } = require("morgan");
 
 const BlogPost = new Schema(
   {
-    title: { type: String, default: "New Post", required: true },
-    author: { type: String, default: "Anonymous" },
+    title: { type: String, required: true },
+    author: String,
     img: String,
     content: String,
     categories: String,
