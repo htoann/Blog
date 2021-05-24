@@ -1,14 +1,11 @@
 body {
   background-color: #f7f6f6;
 }
-
 .card {
   font-size: 20px;
   border: none;
   box-shadow: 5px 6px 6px 2px #e9ecef;
   border-radius: 40px;
-  /* border: 5px solid gray; */
-  /* background: rgb(228, 228, 228); */
 }
 
 .dots {
@@ -72,13 +69,19 @@ body {
   font-size: 15px;
 }
 .form-label-create-comment {
-  /* border: hidden; */
   border-radius: 40px;
-  height: 70px;
+  height: 60px;
   font-size: 17.5px;
 }
 
-button {
+.post-comment {
   margin-bottom: 10%;
-  margin-left: 45%;
+}
+
+.comment-title {
+  margin-left: 3.5%;
+}
+
+form {
+  margin-left: 20%;
 }

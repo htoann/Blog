@@ -3,6 +3,7 @@ var meRouter = require("./me");
 var blogRouter = require("./Blog");
 var siteRouter = require("./site");
 var aboutRouter = require("./about");
+var commentRouter = require("./comment.js");
 
 function route(app) {
   app.use("/auth", authRouter);
@@ -10,6 +11,8 @@ function route(app) {
   app.use("/me", meRouter);
 
   app.use("/blog", blogRouter);
+
+  app.use("/comment", commentRouter);
 
   app.use("/about", aboutRouter);
 

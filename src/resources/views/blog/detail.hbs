@@ -6,61 +6,99 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{{post.title}}</title>
   <link rel="stylesheet" href="/css/post.css" />
+  <link rel="stylesheet" href="/css/comment.css" />
 </head>
 
 <body>
-  <form name="delete-post-form" action="/blog/{{post._id}}?_method=DELETE" type="submit" method="POST">
-    <div class="post">
-      <div class="post-title d-flex justify-content-between">
-        <h2 class="post-title">
-          {{post.title}}
-        </h2>
+  <div class="post">
+    <div class="post-title d-flex justify-content-between">
+      <h2 class="post-title">
+        {{post.title}}
+      </h2>
+      <div class="dropdown">
+        <button class="btn btn-primary post-menu" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+          aria-expanded="false">
+          <i class="fas fa-ellipsis-h"></i>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li>
+            <a class="dropdown-item" href="/blog/{{post._id}}/edit">
+              <i class="fas fa-pen icon-title"></i>Edit Post
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <hr class="post-hr" style="height: 5px" />
+    <div class="post-author">
+      <img src="../img/author.webp" alt="" class="post-author-img" />
+      <p class="post-author-link">{{post.author}}</p>
+      <button type="button" class="btn btn-primary">Follow</button>
+    </div>
 
-        <div class="dropdown">
-          <button class="btn btn-primary post-menu" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
-            aria-expanded="false">
-            <i class="fas fa-ellipsis-h"></i>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-            <li><button class="dropdown-item" href="/blog/{{post._id}}/edit">
-                <i class="fas fa-pen icon-title"></i>Edit Post</button></li>
-            <li><button class="dropdown-item dropdown-item-delete"><i class="fas fa-trash-alt icon-title"
-                  data-id="{{post._id}}"></i>
-                Delete
-              </button></li>
-          </ul>
+    <p class="post-description">
+      {{post.description}}
+    </p>
+
+    <p class="post-picture align-items-center">
+      <img src="{{post.img}}" />
+    </p>
+
+    <p class="post-content">
+      {{post.content}}
+    </p>
+
+    <hr class="mt-4 mb-4 post-hr" style="height: 5px" />
+
+    <p class="post-creatat">
+      {{post.createdAt}}
+    </p>
+  </div>
+
+  {{!-- Comment --}}
+
+
+  <div class="container mt-5">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-8">
+        <div class="headings d-flex mb-3">
+          <h5 class="comment-title">Comments</h5>
         </div>
 
+        {{#each comment}}
+        <div class="card p-3">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="user d-flex flex-row align-items-center"><span><small
+                  class="font-weight-bold text-primary">Author</small>
+                <small class="font-weight-bold">{{comment.content}}</small></span>
+            </div>
+            <small>2 days ago</small>
+          </div>
+
+          <div class="action d-flex justify-content-between mt-2 align-items-center">
+            <div class="icons align-items-center time">
+              {{comment.createdAt}}
+            </div>
+          </div>
+
+          <div class="action d-flex justify-content-between mt-2 align-items-center">
+
+          </div>
+        </div>
+        {{/each}}
+
       </div>
-
-      <hr class="post-hr" style="height: 5px" />
-
-      <div class="post-author">
-        <img src="../img/author.webp" alt="" class="post-author-img" />
-        <p class="post-author-link">{{post.author}}</p>
-        <button type="button" class="btn btn-primary">Follow</button>
-      </div>
-
-      <p class="post-description">
-        {{post.description}}
-      </p>
-
-      <p class="post-picture align-items-center">
-        <img src="{{post.img}}" />
-      </p>
-
-      <p class="post-content">
-        {{post.content}}
-      </p>
-
-      <hr class="mt-4 mb-4 post-hr" style="height: 5px" />
-
-      <p class="post-creatat">
-        {{post.createdAt}}
-      </p>
     </div>
+  </div>
+
+
+  <form method="POST" action="/comment/{{post.slug}}">
+    <div class="card mt-2 mb-4">
+      <input class="form-control form-label-create-comment" name="content" required></input>
+    </div>
+    <button type="submit" class="btn btn-success post-comment">Post Comment</button>
   </form>
-  {{> comment }}
+
 </body>
 
 </html>

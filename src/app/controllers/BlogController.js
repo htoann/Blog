@@ -2,6 +2,7 @@ const BlogPost = require("../models/BlogPost");
 const { multipleMongooseToObject } = require("../../until/mongoose");
 const { mongooseToObject } = require("../../until/mongoose");
 const User = require("../models/User.js");
+const Comment = require("../models/Comment.js");
 
 class BlogController {
   index(req, res, next) {
@@ -19,6 +20,7 @@ class BlogController {
     BlogPost.findOne({ slug: req.params.slug })
       .then((post) => {
         res.render("blog/detail", { post: mongooseToObject(post) });
+        return Comment.find({ slug: req.params.slug });
       })
       .catch(next);
   }
@@ -31,7 +33,7 @@ class BlogController {
   }
 
   // [POST] /blog /store
-  postStore(req, res, next) {
+  postCreate(req, res, next) {
     const blog = new BlogPost(req.body);
     blog
       .save()
@@ -69,6 +71,21 @@ class BlogController {
   deleteDelete(req, res, next) {
     if (req.isAuthenticated()) {
       BlogPost.findById(req.params.id)
+        .then((post) => {
+          if (post.author == req.user.username) {
+            post.delete();
+            res.redirect("back");
+          } else {
+            res.redirect("back");
+          }
+        })
+        .catch(next);
+    } else res.redirect("back");
+  }
+
+  deleteForce(req, res, next) {
+    if (req.isAuthenticated()) {
+      BlogPost.deleteOne({ _id: req.params.id })
         .then((post) => {
           if (post.author == req.user.username) {
             post.delete();
