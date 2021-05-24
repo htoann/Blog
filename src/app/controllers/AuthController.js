@@ -86,7 +86,7 @@ class AuthController {
         }
         if (bcrypt.compareSync(password.trim(), user.password)) {
           return done(null, mongooseToObject(user));
-        } else return done(null, false, { message: "Password incorrect" });
+        } else return done(null, false, { message: "Password is incorrect" });
       })
       .catch(done);
   };
