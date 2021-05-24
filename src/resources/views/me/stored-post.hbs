@@ -7,7 +7,7 @@
 <body>
     <div class="d-flex justify-content-between">
         <h2 class="title-main-page">My Blogs</h2>
-        <a href="/me/trash/posts" class="btn btn-danger mt-auto"><i class="fas fa-trash body icon-title"></i>Trash
+        <a href="/me/trash/posts" class="btn btn-primary mt-auto"><i class="fas fa-trash body icon-title"></i>Trash
             ({{deletedCount}})
         </a>
     </div>
@@ -17,7 +17,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Category</th>
-                <th scope="col" style="margin-left: 50px">Created At</th>
+                <th scope="col">Created At</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -26,25 +26,20 @@
             {{#each posts}}
             <tr>
                 <th scope="row">{{ sum @index 1}}</th>
-                <td class="text-truncate" style="max-width: 200px">{{ this.title }}</td>
+                <td class="text-truncate" style="max-width: 500px">{{ this.title }}</td>
                 <td>{{ this.categories }}</td>
-
-                <td>13:22 02/05/2021</td>
-
-                <td><a href="/blog/{{this._id}}/edit" type="button" class="btn btn-info"
-                        style="margin-right: -40px">Edit</a></td>
-                <td><a href="/blog/{{this._id}}/delete" type="button" class="btn btn-secondary" data-id="{{this._id}}"
-                        data-bs-toggle="modal" data-bs-target="#deletePost" style="margin-right: -55px">Delete</button>
+                <td>{{this.createdAt}}</td>
+                <td><a href="/blog/{{this._id}}/edit" type="button" class="btn btn-success">Edit</a></td>
+                <td><a href="/blog/{{this._id}}/delete" type="button" class="btn btn-danger" data-id="{{this._id}}"
+                        data-bs-toggle="modal" data-bs-target="#deletePost">Delete</button>
                 </td>
             </tr>
-
             {{else}}
             <tr>
                 <td colspan="6" class="text-center">
                     <h4>You don't have any posts yet</h4>
                     <a href="/blog/create" class="btn btn-success mt-4">Create A New Post Now</a>
                 </td>
-
             </tr>
             {{/each}}
         </tbody>
@@ -56,15 +51,15 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Delete blog</h5>
+                    <h5 class="modal-title">Delete to Your Trash?</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Do you want to delete this blog? </p>
+                    <p>Items in your trash will be automatically deleted after 30 days. You can delete them earlier from
+                        your Trash by going to "Trash" in "My Blogs".</p>
                 </div>
-                <div style="transition: 0.3s" class="modal-footer">
-                    <button style="transition: 0.3s" type="button" class="btn btn-secondary"
-                        data-bs-dismiss="modal">Cancel</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button id="btn-delete-post" type="button" class="btn btn-danger">Delete</button>
                 </div>
             </div>

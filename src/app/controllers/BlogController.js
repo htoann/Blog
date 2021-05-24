@@ -83,6 +83,21 @@ class BlogController {
     } else res.redirect("back");
   }
 
+  deleteForce(req, res, next) {
+    if (req.isAuthenticated()) {
+      BlogPost.deleteOne({ _id: req.params.id })
+        .then((post) => {
+          if (post.author == req.user.username) {
+            post.delete();
+            res.redirect("back");
+          } else {
+            res.redirect("back");
+          }
+        })
+        .catch(next);
+    } else res.redirect("back");
+  }
+
   // [PATCH] /blog/:id/restore
   patchRestore(req, res, next) {
     BlogPost.restore({ _id: req.params.id })

@@ -7,12 +7,18 @@ class MeController {
   // [GET] /me/stored/posts
   getStored(req, res, next) {
     Promise.all([BlogPost.find({}), BlogPost.countDocumentsDeleted()])
-      .then(([posts, deletedCount]) =>
-        res.render("me/stored-post", {
-          deletedCount,
-          posts: multipleMongooseToObject(posts),
-        })
-      )
+      .then(([posts, deletedCount]) => {
+        if (req.isAuthenticated()) {
+          BlogPost.find({ author: req.user.username })
+            .then((posts) => {
+              res.render("me/stored-post", {
+                deletedCount,
+                posts: multipleMongooseToObject(posts),
+              });
+            })
+            .catch(next);
+        } else res.redirect("back");
+      })
       .catch(next);
   }
 

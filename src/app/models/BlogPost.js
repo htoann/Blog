@@ -2,7 +2,6 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const slug = require("mongoose-slug-generator");
 const mongooseDelete = require("mongoose-delete");
-// const { format } = require("morgan");
 
 const BlogPost = new Schema(
   {
@@ -14,7 +13,7 @@ const BlogPost = new Schema(
     description: String,
     slug: { type: String, slug: "title", unique: true },
   },
-  { timestamp: true }
+  { timestamps: true }
 );
 
 // Add plugins
