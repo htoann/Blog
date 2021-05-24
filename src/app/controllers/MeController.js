@@ -11,13 +11,13 @@ class MeController {
         if (req.isAuthenticated()) {
           BlogPost.find({ author: req.user.username })
             .then((posts) => {
-              res.render("me/stored-post", {
+              res.render("me/stored-blogs", {
                 deletedCount,
                 posts: multipleMongooseToObject(posts),
               });
             })
             .catch(next);
-        } else res.redirect("back");
+        } else res.redirect("/auth/login");
       })
       .catch(next);
   }
@@ -26,7 +26,7 @@ class MeController {
   getTrash(req, res, next) {
     BlogPost.findDeleted({})
       .then((posts) =>
-        res.render("me/trash-post", {
+        res.render("me/trash-blogs", {
           posts: multipleMongooseToObject(posts),
         })
       )

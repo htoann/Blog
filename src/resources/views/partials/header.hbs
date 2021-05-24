@@ -16,13 +16,13 @@
           <a class="nav-link" href="/blog/create">New Blog</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/me/stored/posts">My Blogs</a>
+          <a class="nav-link" href="/me/stored/blogs">My Blogs</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="/about">About Me</a>
         </li>
         <li class="nav-item">
-          <p class="nav-link text-white mb-4">|</p>
+          <p class="nav-link mb-4">|</p>
         </li>
         <li class="nav-item">
           <p class="nav-link nav-link-welcome disabled text-white"></p>
@@ -32,17 +32,17 @@
     </div>
     <ul class="navbar-nav me-auto mb-3">
       <li class="nav-item dropdown nav-item-dropdown-user">
-        <img src="/img/user5.png" class="user-img">
-        <a class="nav-link dropdown-toggle vippro" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          User
+        <img src="/img/user1.png" class="user-img">
+        <a class="nav-link dropdown-toggle username" href="#" id="navbarDropdown" role="button"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          {{this.user.username}}
         </a>
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
           <li><a class="dropdown-item" href="/profile"><i class="fas fa-user-circle icon-title"></i>My Profile</a>
           </li>
           <li><a class="dropdown-item" href="/blog/create"></i><i class="fas fa-external-link-alt icon-title"></i>Creat
               A New Blog</a></li>
-          <li><a class="dropdown-item" href="/me/stored/posts"><i class="fas fa-newspaper icon-title"></i>My Blogs</a>
+          <li><a class="dropdown-item" href="/me/stored/blogs"><i class="fas fa-newspaper icon-title"></i>My Blogs</a>
           </li>
           <li>
             <hr class="dropdown-divider">
