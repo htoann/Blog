@@ -61,7 +61,7 @@ class BlogController {
   // [PUT] /blog/:id/
   putUpdate(req, res, next) {
     BlogPost.updateOne({ _id: req.params.id }, req.body)
-      .then(() => res.redirect("/me/stored/posts"))
+      .then(() => res.redirect("back"))
       .catch(next);
   }
 
