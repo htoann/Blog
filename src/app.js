@@ -12,6 +12,8 @@ const MongoDBStore = require("connect-mongodb-session")(session);
 require("dotenv").config();
 var route = require("./routes/index.js");
 
+app.use(express.urlencoded({ extended: true }));
+
 let mongodbURI =
   "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority";
 if (process.env.MONGODB_URL) {
@@ -35,8 +37,6 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
-// mongodb://localhost:27017/tranhuutoan_blog_dev
 
 app.use(
   session({

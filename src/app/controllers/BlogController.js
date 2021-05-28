@@ -20,7 +20,6 @@ class BlogController {
     BlogPost.findOne({ slug: req.params.slug })
       .then((post) => {
         res.render("blog/detail", { post: mongooseToObject(post) });
-        return Comment.find({ slug: req.params.slug });
       })
       .catch(next);
   }
@@ -61,7 +60,7 @@ class BlogController {
   // [PUT] /blog/:id/
   putUpdate(req, res, next) {
     BlogPost.updateOne({ _id: req.params.id }, req.body)
-      .then(() => res.redirect("/me/stored/posts"))
+      .then(() => res.redirect("/me/stored/blogs"))
       .catch(next);
   }
 
