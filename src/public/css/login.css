@@ -1,5 +1,7 @@
 body {
-  background: linear-gradient(rgb(14, 137, 146), rgb(53, 45, 100));
+  /* background: linear-gradient(rgb(14, 137, 146), rgb(53, 45, 100)); */
+  background-image: url(/img/pluralsight.png);
+  background-size: cover;
 }
 
 .card {
@@ -11,11 +13,10 @@ body {
   width: 500px;
   padding: 40px;
   position: absolute;
-  background: #000000;
+  background: #111418;
   text-align: center;
   transition: 0.25s;
   margin-top: 100px;
-  border-radius: 5%;
 }
 
 .box input[type="text"],

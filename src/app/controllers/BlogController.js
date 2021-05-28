@@ -20,7 +20,6 @@ class BlogController {
     BlogPost.findOne({ slug: req.params.slug })
       .then((post) => {
         res.render("blog/detail", { post: mongooseToObject(post) });
-        return Comment.find({ slug: req.params.slug });
       })
       .catch(next);
   }
