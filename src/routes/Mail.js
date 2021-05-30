@@ -4,7 +4,7 @@ const router = express.Router();
 const mailController = require("../app/controllers/MailController");
 
 router.post("/mail", (req, res) => {
-  mailController.sendMail();
+  // mailController.sendMail();
   res.redirect("/");
 });
 
