@@ -36,7 +36,7 @@ class BlogController {
     const blog = new BlogPost(req.body);
     blog
       .save()
-      .then(() => res.redirect("/me/stored/posts"))
+      .then(() => res.redirect("/me/stored/blogs"))
       .catch((err) => {});
   }
 
