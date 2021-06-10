@@ -4,4 +4,4 @@
 
 https://bloghtoan.herokuapp.com/
 
-Some features will be fixed in the future
+Some bugs will be fixed in the future
