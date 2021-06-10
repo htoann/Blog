@@ -3,3 +3,5 @@
 ### Thanks to F8, Web Dev Simplified,...
 
 https://bloghtoan.herokuapp.com/
+
+Some features will be fixed in the future
