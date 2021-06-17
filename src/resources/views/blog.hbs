@@ -1,7 +1,7 @@
 <title>Blogs</title>
 <link rel="stylesheet" href="/css/blog.css">
 <h2 class="title-main-page">All Blogs</h2>
-<hr style="height: 5px" />
+<hr style="height: 2px; margin:30px 0 50px 0" />
 
 <div class="blogs">
     {{#each posts}}
@@ -10,18 +10,25 @@
             <h3 class="card-header">{{ this.title }}</h3>
         </a>
 
-        {{!-- <img class="card-header-picture" src="{{this.img}}" alt=""> --}}
-
         <div class="card-body">
             <p class="card-text">{{ this.description }}</p>
 
             <div class="card-footer-item">
                 <a href="#" class="btn btn-light"> Author : {{ this.author }} </a>
-                <h5 class="card-footer-item-p">Category : {{ this.categories}}</>
+                <h5 class="card-footer-item-p">Category : {{ this.categories}}
+                    <h5 />
             </div>
         </div>
     </div>
-    <hr style="width: 680px">
+
+    {{!-- <a href="/blog/{{this.slug}}">
+        <h3>{{ this.title }}</h3>
+    </a>
+    <p>{{ this.description }}</p>
+    <a href="#" class="btn btn-light"> By {{ this.author }} </a>
+    <h5>Category : {{ this.categories}}</h5> --}}
+
+    <div style="margin: 50px 0"></div>
 
     {{else}}
 
