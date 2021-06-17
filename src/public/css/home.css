@@ -1,13 +1,35 @@
-.view-blog {
-  animation: transitionIn 2s;
+.header-top {
+  transform-origin: 30% top;
+  animation: transitionIn 0.8s;
+}
+
+.header-bottom {
+  transform-origin: bottom;
+  animation: subscribe ease-out 1.5s;
+  position: relative;
 }
 
 @keyframes transitionIn {
+  from {
+    transform: scale(0.5);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes subscribe {
   0% {
-    transform: translateY(20%);
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  50% {
+    opacity: 0;
+    transform: translateY(50%);
   }
   100% {
-    transform: translateY(0);
+    opacity: 1;
+    transform: translateY(0%);
   }
 }
 
@@ -18,7 +40,7 @@ body {
 }
 .hover {
   position: relative;
-  width: 706px;
+  width: 50%;
   height: 450px;
 }
 
@@ -32,6 +54,7 @@ body {
   bottom: 10%;
   transition: all 0.5s;
   font-size: 50px;
+  /* text-align: center; */
 }
 
 .hover-5-title a {
@@ -44,7 +67,7 @@ body {
 .good-morning {
   margin-top: 10px;
   margin-left: 12%;
-  font-size: 40px;
+  font-size: 32px;
 }
 
 .hover-5-content {
@@ -73,15 +96,16 @@ input {
 }
 
 .btn-Subscribe:hover {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
 }
 
 .welcome {
   font-family: "Megrim", cursive;
+  width: 105%;
 }
 .transition-ok {
-  width: 100%;
+  width: 65%;
   height: 200px;
-  position: relative;
+  position: absolute;
 }

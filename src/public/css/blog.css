@@ -1,3 +1,7 @@
+.all-blogs {
+  padding-bottom: 5px;
+}
+
 .title-main-page {
   text-align: center;
 }
@@ -5,39 +9,18 @@
   margin-left: 23.5%;
 }
 
-.card-item {
-  margin-top: 20px;
-}
-
-.card-header {
-  transition: 0.2s;
-}
-.card-header-picture {
-  width: 500px;
-  padding-top: 20px;
-  margin: auto;
-}
-
-.card-header:hover {
-  background-color: #d8d8d8;
-  color: black;
-}
-
-.card-item-title {
+.title {
   text-decoration: none;
   color: black;
+  max-width: 680px;
 }
 
-.card-footer-item {
-  display: flex;
-  width: 100%;
-  justify-content: space-between;
+.des {
+  color: rgba(117, 117, 117, 1);
+  max-width: 680px;
 }
-.card-footer-item-p {
-  font-weight: -500;
-  color: #4163a1;
-  padding-top: 6px;
-}
-.card-footer-item .btn {
-  background-color: #e3f2fd;
+
+.cate {
+  color: rgba(41, 41, 41, 1);
+  font-weight: 500;
 }
