@@ -11,8 +11,9 @@
 
 .title {
   text-decoration: none;
-  color: black;
+  color: rgba(41, 41, 41, 1);
   max-width: 680px;
+  line-height: 28px;
 }
 
 .des {
@@ -23,4 +24,9 @@
 .cate {
   color: rgba(41, 41, 41, 1);
   font-weight: 500;
+}
+
+.author {
+  font-weight: 500;
+  text-decoration: none;
 }
