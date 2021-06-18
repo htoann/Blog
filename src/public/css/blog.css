@@ -1,12 +1,13 @@
 .all-blogs {
   padding-bottom: 5px;
+  width: 680px;
+  align-items: center;
+  display: block;
+  margin: auto;
 }
 
 .title-main-page {
   text-align: center;
-}
-.blogs {
-  margin-left: 23.5%;
 }
 
 .title {
