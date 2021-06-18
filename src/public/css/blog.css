@@ -1,18 +1,20 @@
 .all-blogs {
   padding-bottom: 5px;
+  width: 680px;
+  align-items: center;
+  display: block;
+  margin: auto;
 }
 
 .title-main-page {
   text-align: center;
 }
-.blogs {
-  margin-left: 23.5%;
-}
 
 .title {
   text-decoration: none;
-  color: black;
+  color: rgba(41, 41, 41, 1);
   max-width: 680px;
+  line-height: 28px;
 }
 
 .des {
@@ -23,4 +25,9 @@
 .cate {
   color: rgba(41, 41, 41, 1);
   font-weight: 500;
+}
+
+.author {
+  font-weight: 500;
+  text-decoration: none;
 }
