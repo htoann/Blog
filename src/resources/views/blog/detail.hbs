@@ -23,8 +23,13 @@
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li>
             <a class="dropdown-item" href="/blog/{{post._id}}/edit">
-              <i class="fas fa-pen icon-title"></i>Edit Post
+              <i class="fas fa-pen icon-title"></i>Edit
             </a>
+          </li>
+          <li>
+            <form method="POST" class="dropdown-item" action="/blog/{{post._id}}/force?_method=DELETE">
+              <button class="dropdown-item delete"><i class="fas fa-trash icon-title"></i>Delete</button>
+            </form>
           </li>
         </ul>
       </div>
