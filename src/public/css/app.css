@@ -83,3 +83,19 @@ body {
 .delete {
   margin-left: -15px;
 }
+
+.back-to-top {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-size: 50px;
+  padding: 20px;
+}
+
+.back-to-top i {
+  color: rgb(20, 34, 97);
+}
+
+.btn-success {
+  background-color: rgb(3 152 158) !important;
+}

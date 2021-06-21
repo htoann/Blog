@@ -34,9 +34,9 @@
 }
 
 body {
-  /* background-image: url(/img/destop.png); */
   background-image: url(/img/pluralsight.png);
   background-size: cover;
+  overflow-x: hidden;
 }
 .hover {
   position: relative;
