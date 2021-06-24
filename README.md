@@ -7,8 +7,6 @@ Some bugs will be fixed in the future.
 ### Usage
 
 ```
-
 npm install
 npm start
-
 ```
