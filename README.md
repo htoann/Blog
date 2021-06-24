@@ -9,4 +9,5 @@ Some bugs will be fixed in the future.
 ```
 npm install
 npm start
+npm run dev (run with nodemon)
 ```
