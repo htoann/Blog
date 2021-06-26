@@ -34,10 +34,6 @@
 }
 
 body {
-<<<<<<< HEAD
-=======
-  /* background-image: url(/img/destop.png); */
->>>>>>> c73a7fa6890608ae4868b41f79cb10abfb610971
   background-image: url(/img/pluralsight.png);
   background-size: cover;
   overflow-x: hidden;
@@ -100,12 +96,7 @@ input {
 }
 
 .btn-Subscribe:hover {
-<<<<<<< HEAD
   background-color: red;
-=======
-  background-color: white;
-  color: black;
->>>>>>> c73a7fa6890608ae4868b41f79cb10abfb610971
 }
 
 .welcome {
