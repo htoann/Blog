@@ -14,8 +14,8 @@ Some bugs will be fixed in the future.
 npm install
 npm start
 ```
-or
+or with nodemon
 ```
 npm install
-npm run dev (with nodemon)
+npm run dev 
 ```
