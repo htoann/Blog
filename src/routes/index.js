@@ -57,7 +57,7 @@ function route(app) {
         }
       });
     };
-    res.redirect("/");
+    res.redirect("/blog");
     sendMail();
   });
 
