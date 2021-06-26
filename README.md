@@ -1,10 +1,8 @@
 ## Node.js
 
-### Some ideas are based on medium.com, genk.vn, facebook.com, ...
+The application is deployed to Heroku and can be accessed through the following link:
 
-### Thanks to F8, Web Dev Simplified, ...
-
-Some bugs will be fixed in the future.
+[Blog on Heroku](https://bloghtoan.herokuapp.com/)
 
 ---
 
