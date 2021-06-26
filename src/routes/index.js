@@ -22,9 +22,7 @@ function route(app) {
       <p>Hi ${req.body.name},</p>
       <p>Chào mừng bạn đến với blog! Mọi thông tin mới nhất về blog sẽ được gửi tới bạn thông qua địa chỉ email này.</p>
       <p>My Contact: </p>
-      <ul>
-        <li>Email: huutrantoan@gmail.com</li>
-      </ul>
+      <p>Email: huutrantoan@gmail.com</p>
       <br>
       <p>Trần Hữu Toàn</p>
       <p style="color: gray">Blog HToan</p>
