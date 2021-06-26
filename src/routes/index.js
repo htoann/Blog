@@ -4,6 +4,7 @@ var blogRouter = require("./Blog");
 var siteRouter = require("./site");
 var aboutRouter = require("./about");
 var commentRouter = require("./comment.js");
+const nodemailer = require("nodemailer");
 
 function route(app) {
   app.use("/auth", authRouter);
