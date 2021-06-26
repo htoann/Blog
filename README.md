@@ -1,4 +1,6 @@
-## Node.js
+## Blog
+
+A virtual ecommerce website using Node.js, Express.js, and Mongoose.
 
 The application is deployed to Heroku and can be accessed through the following link:
 
