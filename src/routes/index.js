@@ -21,7 +21,7 @@ function route(app) {
     const output = `
       <p>Hi ${req.body.name},</p>
       <p>Chào mừng bạn đến với blog! Mọi thông tin mới nhất về blog sẽ được gửi tới bạn thông qua địa chỉ email này.</p>
-      <h3>My Contact: </h3>
+      <p>My Contact: </p>
       <ul>
         <li>Email: huutrantoan@gmail.com</li>
       </ul>
