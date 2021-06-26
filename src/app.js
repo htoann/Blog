@@ -10,7 +10,7 @@ const session = require("express-session");
 const passportConfig = require("./config/passport-config");
 const MongoDBStore = require("connect-mongodb-session")(session);
 require("dotenv").config();
-var route = require("./routes/Index.js");
+var route = require("./routes/index.js");
 
 app.use(express.urlencoded({ extended: true }));
 
