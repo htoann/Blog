@@ -33,10 +33,13 @@ function route(app) {
       let mailTransporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 465,
-        secure: true, // true for 465, false for other ports
+        secure: true,
         auth: {
           user: "bloghtoan@gmail.com",
           pass: "bloghtoan2002",
+        },
+        tls: {
+          rejectUnauthorized: false,
         },
       });
 
