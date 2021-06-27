@@ -1,5 +1,5 @@
 .header-top {
-  transform-origin: 30% top;
+  transform-origin: 20% top;
   animation: transitionIn 0.8s;
 }
 
@@ -21,11 +21,7 @@
 @keyframes subscribe {
   0% {
     opacity: 0;
-    transform: translateY(100%);
-  }
-  50% {
-    opacity: 0;
-    transform: translateY(50%);
+    transform: translateY(40%);
   }
   100% {
     opacity: 1;
