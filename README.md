@@ -52,4 +52,4 @@ Below is the color palette used in this blog:
 [![License](https://img.shields.io/:License-MIT-blue.svg?style=flat-square)](#)
 
 - MIT License
-- Copyright 2020 © [Trần Hữu Toàn](https://github.com/huutoan02)
+- Copyright 2021 © [Trần Hữu Toàn](https://github.com/huutoan02)
