@@ -14,6 +14,7 @@ body {
   transform-origin: bottom;
   animation: subscribe ease-in-out 1s;
   position: relative;
+  margin-top: 30px;
 }
 
 @keyframes transitionIn {
@@ -79,7 +80,7 @@ input {
   height: 50px;
   width: 30%;
   font-size: 20px;
-  /* margin-top: 20px; */
+  margin-top: 15px;
 }
 
 .btn-Subscribe {
