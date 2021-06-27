@@ -6,46 +6,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Profile</title>
   <link rel="stylesheet" href="/css/profile.css" />
-  <link rel="stylesheet" href="/css/wave.css" />
 </head>
 
 <body>
-  <div id="wave"></div>
 
-  <div>
-    <div class="ui-bg-cover ui-bg-overlay-container text-white" style="background-color: #87CEFA;">
-      <div class="ui-bg-overlay bg-dark opacity-50"></div>
-      <div class="container">
-        <div class="text-center py-5">
-          <img src="/img/user1.png" class="ui-w-100 rounded-circle" />
+  <div class="ui-bg-cover ui-bg-overlay-container text-white" style="background-color: #87CEFA;">
+    <div class="ui-bg-overlay bg-dark opacity-50"></div>
+    <div class="container">
+      <div class="text-center py-5">
+        <img src="https://github.com/huutoan02.png" class="ui-w-100 rounded-circle" />
 
-          <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
-            <h4 class="font-weight-bold my-4">My Profile</h4>
-            <div class="opacity-75 mb-4">
-              <h5>Username : {{user.username}}</h5>
-            </div>
-            <div class="opacity-75 mb-4">
-              <h5>Email : {{user.email}}</h5>
-            </div>
+        <div class="col-md-8 col-lg-6 col-xl-5 p-0 mx-auto">
+          <h4 class="font-weight-bold my-4">My Profile</h4>
+          <div class="opacity-75 mb-4">
+            <h5>Username : {{user.username}}</h5>
+          </div>
+          <div class="opacity-75 mb-4">
+            <h5>Email : {{user.email}}</h5>
           </div>
         </div>
       </div>
     </div>
-    <div class="ui-bg-overlay-container">
-      <div class="ui-bg-overlay bg-dark opacity-25"></div>
-      <ul class="nav nav-tabs tabs-alt justify-content-center border-transparent">
-        <li class="nav-item">
-          <a class="nav-link text-white py-4" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white py-4" href="/blog/create">Create A New Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white py-4" href="/auth/logout">Log Out</a>
-        </li>
-      </ul>
-    </div>
   </div>
+  <div class="ui-bg-overlay-container">
+    <div class="ui-bg-overlay bg-dark opacity-25"></div>
+    <ul class="nav nav-tabs tabs-alt justify-content-center border-transparent">
+      <li class="nav-item">
+        <a class="nav-link text-white py-4" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white py-4" href="/blog/create">Create A New Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white py-4" href="/auth/logout">Log Out</a>
+      </li>
+    </ul>
+  </div>
+
 </body>
 
 </html>

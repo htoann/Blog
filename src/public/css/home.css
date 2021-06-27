@@ -52,7 +52,6 @@ body {
   bottom: 10%;
   transition: all 0.5s;
   font-size: 50px;
-  /* text-align: center; */
 }
 
 .hover-5-title a {
@@ -73,7 +72,6 @@ body {
 }
 
 form {
-  margin-top: 5%;
   text-align: center;
 }
 
@@ -81,7 +79,7 @@ input {
   height: 50px;
   width: 30%;
   font-size: 20px;
-  margin-top: 20px;
+  /* margin-top: 20px; */
 }
 
 .btn-Subscribe {
