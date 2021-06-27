@@ -18,14 +18,14 @@
       <div class="hover-5-content">
         <div class="hover-5-title text-uppercase font-weight-light mb-0">
           <p class="welcome">Welcome To The Home Page</p>
-          <strong class="font-weight-bold text-white good-morning"></strong>
+          <strong class="font-weight-bold good-morning"></strong>
           <a class="btn btn-outline-light btn-lg" href="/blog">View Blogs</a>
         </div>
       </div>
     </div>
     <br>
     <form action="/mail" method="POST" class="header-bottom">
-      <h2 class="text-white">Subscribe For More Blogs</h2>
+      <h2>Subscribe For More Blogs</h2>
       <input name="name" class="text-dark" placeholder="Name" autocomplete="off" required>
       <br>
       <input type="email" name="mail" class="text-dark" placeholder="Email"
@@ -40,10 +40,6 @@
 </html>
 
 <script>
-
-  
-
-
   let hour = new Date().getHours();
   let hello = document.querySelector('.font-weight-bold');
   if (hour >= 0 && hour <= 11) {

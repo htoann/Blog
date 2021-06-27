@@ -6,6 +6,7 @@ body {
 
 .title-main-page {
   margin-top: 25px;
+  color: #478ba2;
 }
 
 .alert-primary {
@@ -30,6 +31,12 @@ body {
   margin-right: 10px;
 }
 
+/* /blog/create */
+
+form {
+  padding-bottom: 28px;
+}
+
 .form-label-create {
   font-size: 25px;
 }
@@ -39,6 +46,8 @@ body {
   font-size: 20px;
   padding: 10px;
 }
+
+/* /about */
 
 .about-text {
   transition: 0.3s;

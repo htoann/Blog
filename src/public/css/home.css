@@ -66,6 +66,7 @@ body {
   margin-top: 10px;
   margin-left: 12%;
   font-size: 32px;
+  color: #de5b6d;
 }
 
 .hover-5-content {
@@ -74,6 +75,10 @@ body {
 
 form {
   text-align: center;
+}
+
+form h2 {
+  color: #478ba2;
 }
 
 input {

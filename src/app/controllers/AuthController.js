@@ -63,6 +63,8 @@ class AuthController {
     if (req.isAuthenticated()) {
       req.logout();
       return res.redirect("/auth/login");
+    } else {
+      res.redirect("/auth/login");
     }
   }
 

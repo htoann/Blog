@@ -1,7 +1,5 @@
 body {
-  background: linear-gradient(rgb(14, 137, 146), rgb(53, 45, 100));
-  background-image: url(/img/pluralsight.png);
-  background-size: cover;
+  background: linear-gradient(to right, #4e4376, #2b5876);
 }
 
 .card {
@@ -17,6 +15,7 @@ body {
   text-align: center;
   transition: 0.25s;
   margin-top: 100px;
+  border-radius: 15px;
 }
 
 .box input[type="text"],
