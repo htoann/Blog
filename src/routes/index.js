@@ -30,15 +30,27 @@ function route(app) {
       <p style="color: gray">Blog HToan</p>
       `;
     let sendMail = function () {
-      let mailTransporter = nodemailer.createTransport({
+      const mailTransporter = nodemailer.createTransport({
+        pool: true,
         service: "gmail",
         auth: {
+          type: "OAuth2",
           user: process.env.EMAIL,
-          pass: process.env.PASSWORD,
+          refreshToken: process.env.EMAIL_REFRESH_TOKEN,
+          clientId: process.env.EMAIL_CLIENT_ID,
+          clientSecret: process.env.EMAIL_CLIENT_SECRET,
         },
-        tls: {
-          rejectUnauthorized: false,
-        },
+      });
+
+      mailTransporter.verify((error, success) => {
+        if (error) return console.log(error);
+        console.log("Server is ready to take our messages: ", success);
+        mailTransporter.on("token", (token) => {
+          console.log("A new access token was generated");
+          console.log("User: %s", token.user);
+          console.log("Access Token: %s", token.accessToken);
+          console.log("Expires: %s", new Date(token.expires));
+        });
       });
 
       let mailDetails = {
