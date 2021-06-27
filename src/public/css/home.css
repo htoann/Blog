@@ -1,11 +1,18 @@
+body {
+  background-color: black;
+  background-image: url(/img/pluralsight.png);
+  background-size: cover;
+  overflow-x: hidden;
+}
+
 .header-top {
   transform-origin: 20% top;
-  animation: transitionIn 0.8s;
+  animation: transitionIn 1s;
 }
 
 .header-bottom {
   transform-origin: bottom;
-  animation: subscribe ease-out 1.5s;
+  animation: subscribe ease-in-out 1s;
   position: relative;
 }
 
@@ -29,11 +36,6 @@
   }
 }
 
-body {
-  background-image: url(/img/pluralsight.png);
-  background-size: cover;
-  overflow-x: hidden;
-}
 .hover {
   position: relative;
   width: 50%;
