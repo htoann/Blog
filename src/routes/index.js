@@ -25,7 +25,7 @@ function route(app) {
       <p>Chào mừng bạn đến với blog! Mọi thông tin mới nhất về blog sẽ được gửi tới bạn thông qua địa chỉ email này.</p>
       <p>My Contact: </p>
       <p>Email: huutrantoan@gmail.com</p>
-      <br>
+        <br>
       <p>Trần Hữu Toàn</p>
       <p style="color: gray">Blog HToan</p>
       `;
