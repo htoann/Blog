@@ -4,6 +4,7 @@ var blogRouter = require("./Blog");
 var siteRouter = require("./site");
 var aboutRouter = require("./about");
 var commentRouter = require("./comment.js");
+require("dotenv").config();
 const nodemailer = require("nodemailer");
 
 function route(app) {
@@ -33,8 +34,8 @@ function route(app) {
         port: 465,
         secure: true,
         auth: {
-          user: "bloghtoan@gmail.com",
-          pass: "bloghtoan2002",
+          user: process.env.EMAIL,
+          pass: process.env.PASSWORD,
         },
         tls: {
           rejectUnauthorized: false,
