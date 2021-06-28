@@ -1,8 +1,6 @@
 const BlogPost = require("../models/BlogPost");
 const { multipleMongooseToObject } = require("../../until/mongoose");
 const { mongooseToObject } = require("../../until/mongoose");
-const User = require("../models/User.js");
-const Comment = require("../models/Comment.js");
 
 class BlogController {
   index(req, res, next) {
@@ -36,7 +34,7 @@ class BlogController {
     const blog = new BlogPost(req.body);
     blog
       .save()
-      .then(() => res.redirect("/me/stored/blogs"))
+      .then(() => res.redirect("/blog"))
       .catch((err) => {});
   }
 
