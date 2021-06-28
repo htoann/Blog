@@ -6,7 +6,8 @@ body {
 
 .title-main-page {
   margin-top: 25px;
-  color: #478ba2;
+  color: #333;
+  text-align: center;
 }
 
 .alert-primary {
