@@ -10,6 +10,13 @@
 </head>
 
 <body>
+    <div style="position: absolute;">
+        <h3>Find blogs</h3>
+        <br>
+        <input id="myInput" class="form-control" type="search" placeholder="Search" aria-label="Search">
+        <br><br>
+    </div>
+
     <div class="all-blogs">
 
         <h2 class="title-main-page">All Blogs</h2>
@@ -27,9 +34,8 @@
                 </a>
                 <p class="des">{{ this.description }}</p>
                 <a class="author" href="#"> By {{ this.author }} </a>
+                <hr style="width: 680px; margin: 40px 0" />
             </div>
-
-            <hr style="width: 680px; margin: 40px 0" />
 
             {{else}}
 
@@ -55,3 +61,14 @@
 </body>
 
 </html>
+
+<script>
+    $(document).ready(function () {
+        $("#myInput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $(".blogs div").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+        });
+    });
+</script>
