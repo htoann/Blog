@@ -11,7 +11,7 @@
 
 <body>
     <div style="position: absolute;">
-        <h3>Find blogs</h3>
+        <h3>Find Blogs</h3>
         <br>
         <input id="myInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <br><br>
@@ -27,7 +27,7 @@
 
             {{#each posts}}
 
-            <div class="blog">
+            <div class="blog container-fluid">
                 <p class="cate">Category {{ this.categories}}</p>
                 <a class="title" href="/blog/{{this.slug}}">
                     <h3 class="title">{{ this.title }}</h3>

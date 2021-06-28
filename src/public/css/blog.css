@@ -1,6 +1,6 @@
 .all-blogs {
   padding-bottom: 5px;
-  width: 680px;
+  max-width: 680px;
   align-items: center;
   display: block;
   margin: auto;

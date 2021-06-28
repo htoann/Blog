@@ -6,7 +6,7 @@ form {
   font-size: 21px;
   line-height: 32px;
   font-weight: 400;
-  width: 700px;
+  max-width: 700px;
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: block;
   margin: auto;
