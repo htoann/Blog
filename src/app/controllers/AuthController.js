@@ -1,7 +1,7 @@
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const User = require("../models/User.js");
-const { mongooseToObject } = require("../../until/mongoose");
+const { mongooseToObject } = require("../../util/mongoose");
 
 class AuthController {
   getLogin = (req, res) => {
