@@ -15,7 +15,8 @@ require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 
-let mongodbURI = process.env.DATABASE;
+let mongodbURI =
+  "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority";
 if (process.env.MONGODB_URL) {
   mongodbURI = process.env.MONGODB_URL;
 }
@@ -44,7 +45,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: new MongoDBStore({
-      uri: process.env.DATABASE,
+      uri: "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority",
       collection: "sessions",
       connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
     }),
