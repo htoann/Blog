@@ -5,7 +5,6 @@ var siteRouter = require("./site");
 var aboutRouter = require("./about");
 var commentRouter = require("./comment.js");
 
-require("dotenv").config();
 const nodemailer = require("nodemailer");
 
 function route(app) {

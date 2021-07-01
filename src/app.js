@@ -5,6 +5,7 @@ const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const app = express();
 const flash = require("express-flash");
+// const MONGODB = require("./config/mongodb-config");
 const passport = require("passport");
 const session = require("express-session");
 const passportConfig = require("./config/passport-config");
@@ -14,8 +15,7 @@ var route = require("./routes/index.js");
 
 app.use(express.urlencoded({ extended: true }));
 
-let mongodbURI =
-  "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority";
+let mongodbURI = process.env.MONGODBURI;
 if (process.env.MONGODB_URL) {
   mongodbURI = process.env.MONGODB_URL;
 }
@@ -44,7 +44,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: new MongoDBStore({
-      uri: "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority",
+      uri: process.env.MONGODBURI,
       collection: "sessions",
       connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
     }),
