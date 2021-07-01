@@ -15,8 +15,7 @@ require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 
-let mongodbURI =
-  "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority";
+let mongodbURI = process.env.DATABASE;
 if (process.env.MONGODB_URL) {
   mongodbURI = process.env.MONGODB_URL;
 }
@@ -31,7 +30,7 @@ mongoose
   .then((result) => {
     let port = process.env.PORT;
     if (port == null || port == "") {
-      port = 3000;
+      port = process.env.PORT;
     }
     app.listen(port);
   })
@@ -45,7 +44,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: new MongoDBStore({
-      uri: "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority",
+      uri: process.env.DATABASE,
       collection: "sessions",
       connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
     }),
