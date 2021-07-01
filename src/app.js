@@ -44,7 +44,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: new MongoDBStore({
-      uri: process.env.MONGODBURI,
+      uri: mongodbURI,
       collection: "sessions",
       connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
     }),
