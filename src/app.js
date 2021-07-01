@@ -5,13 +5,13 @@ const exphbs = require("express-handlebars");
 const methodOverride = require("method-override");
 const app = express();
 const flash = require("express-flash");
-// const MONGODB = require("./config/mongodb-config");
 const passport = require("passport");
 const session = require("express-session");
 const passportConfig = require("./config/passport-config");
 const MongoDBStore = require("connect-mongodb-session")(session);
-require("dotenv").config();
 var route = require("./routes/index.js");
+
+require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 
