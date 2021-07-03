@@ -45,7 +45,7 @@ form {
 .post-content {
   font-size: 25px;
   line-height: 45px;
-  font-family: Times, "Times New Roman";
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .post-hr {
   height: 50px;
