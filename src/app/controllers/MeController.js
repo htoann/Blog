@@ -6,7 +6,10 @@ const User = require("../models/User");
 class MeController {
   // [GET] /me/stored/posts
   getStored(req, res, next) {
-    Promise.all([BlogPost.find({}), BlogPost.countDocumentsDeleted()])
+    Promise.all([
+      BlogPost.find({}),
+      BlogPost.countDocumentsDeleted({ author: req.user.username }),
+    ])
       .then(([posts, deletedCount]) => {
         if (req.isAuthenticated()) {
           BlogPost.find({ author: req.user.username })
@@ -24,7 +27,7 @@ class MeController {
 
   // [GET] /me/stored/posts
   getTrash(req, res, next) {
-    BlogPost.findDeleted({})
+    BlogPost.findDeleted({ author: req.user.username })
       .then((posts) =>
         res.render("me/trash-blogs", {
           posts: multipleMongooseToObject(posts),
