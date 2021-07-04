@@ -1,19 +1,19 @@
 const path = require("path");
 const express = require("express");
 const exphbs = require("express-handlebars");
-const methodOverride = require("method-override");
-const app = express();
 const flash = require("express-flash");
-const passport = require("passport");
 const session = require("express-session");
-const passportConfig = require("./config/passport-config");
+const passport = require("passport");
+const methodOverride = require("method-override");
 const MongoDBStore = require("connect-mongodb-session")(session);
-var route = require("./routes/index.js");
+const route = require("./routes/index.js");
 
 require("dotenv").config();
 
+const app = express();
 app.use(express.urlencoded({ extended: true }));
 
+const passportConfig = require("./config/passport-config");
 const connectDatabase = require("./config/db.config");
 connectDatabase();
 
