@@ -56,7 +56,7 @@ function route(app) {
         from: "bloghtoan@gmail.com",
         to: req.body.mail,
         subject: "Thank You For Subscribing To My Blog",
-        text: "Node.js testing mail",
+        text: "Node.js Testing Mail",
         html: output,
       };
 
