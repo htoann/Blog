@@ -59,6 +59,9 @@ class AuthController {
   getLogout(req, res) {
     if (req.isAuthenticated()) {
       req.logout();
+      req.session.destroy(function (err) {
+        console.log(err);
+      });
       return res.redirect("/auth/login");
     } else {
       res.redirect("/auth/login");
