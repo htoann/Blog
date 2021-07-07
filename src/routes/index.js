@@ -1,9 +1,9 @@
-var authRouter = require("./Auth");
-var meRouter = require("./Me");
-var blogRouter = require("./Blog");
-var siteRouter = require("./Site");
-var aboutRouter = require("./About");
-var commentRouter = require("./Comment.js");
+var authRouter = require("./auth");
+var meRouter = require("./me");
+var blogRouter = require("./blog");
+var siteRouter = require("./site");
+var aboutRouter = require("./about");
+var commentRouter = require("./comment.js");
 var nodemailer = require("nodemailer");
 
 function route(app) {
