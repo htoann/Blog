@@ -56,7 +56,6 @@ class AuthController {
           });
         }
       })
-      .catch((err) => res.send(err.message));
   }
 
   getLogout(req, res) {

@@ -35,7 +35,6 @@ class BlogController {
     blog
       .save()
       .then(() => res.redirect("/blog"))
-      .catch((err) => {});
   }
 
   // [GET] /blog/:id/edit

@@ -6,14 +6,9 @@ class CommentController {
       slug: req.params.slug,
       content: req.body.content,
     });
-    comment
-      .save()
-      .then((comment) => {
-        res.redirect("/blog/" + req.params.slug);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    comment.save().then((comment) => {
+      res.redirect("/blog/" + req.params.slug);
+    });
   }
 }
 
