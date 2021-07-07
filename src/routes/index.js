@@ -33,11 +33,8 @@ function route(app) {
         pool: true,
         service: "gmail",
         auth: {
-          type: "OAuth2",
           user: process.env.EMAIL,
-          refreshToken: process.env.EMAIL_REFRESH_TOKEN,
-          clientId: process.env.EMAIL_CLIENT_ID,
-          clientSecret: process.env.EMAIL_CLIENT_SECRET,
+          password: process.env.PASSWORD,
         },
       });
 
