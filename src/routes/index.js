@@ -38,16 +38,16 @@ function route(app) {
         },
       });
 
-      mailTransporter.verify((error, success) => {
-        if (error) return console.log(error);
-        console.log("Server is ready to take our messages: ", success);
-        mailTransporter.on("token", (token) => {
-          console.log("A new access token was generated");
-          console.log("User: %s", token.user);
-          console.log("Access Token: %s", token.accessToken);
-          console.log("Expires: %s", new Date(token.expires));
-        });
-      });
+      // mailTransporter.verify((error, success) => {
+      //   if (error) return console.log(error);
+      //   console.log("Server is ready to take our messages: ", success);
+      //   mailTransporter.on("token", (token) => {
+      //     console.log("A new access token was generated");
+      //     console.log("User: %s", token.user);
+      //     console.log("Access Token: %s", token.accessToken);
+      //     console.log("Expires: %s", new Date(token.expires));
+      //   });
+      // });
 
       let mailDetails = {
         from: "bloghtoan@gmail.com",
