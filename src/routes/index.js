@@ -17,7 +17,7 @@ function route(app) {
 
   app.use("/about", aboutRouter);
 
-  app.use("/mail", (req, res) => {
+  app.use("/mail", (req, res, err) => {
     const output = `
       <p>Hi ${req.body.name},</p>
       <p>Chào mừng bạn đến với blog! Mọi thông tin mới nhất về blog sẽ được gửi tới bạn thông qua địa chỉ email này.</p>
@@ -52,6 +52,7 @@ function route(app) {
         }
       });
     };
+    console.log(err);
     res.redirect("/blog");
     sendMail();
   });

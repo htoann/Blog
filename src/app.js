@@ -4,6 +4,7 @@ const exphbs = require("express-handlebars");
 const flash = require("express-flash");
 const session = require("express-session");
 const passport = require("passport");
+const passportConfig = require("./config/passport-config");
 const methodOverride = require("method-override");
 const MongoDBStore = require("connect-mongodb-session")(session);
 const route = require("./routes/index.js");
@@ -13,7 +14,6 @@ require("dotenv").config();
 const app = express();
 app.use(express.urlencoded({ extended: false }));
 
-const passportConfig = require("./config/passport-config");
 const connectDatabase = require("./config/db.config");
 connectDatabase();
 
@@ -54,9 +54,6 @@ app.set("views", path.join(__dirname, "resources/views"));
 // Routes Init
 route(app);
 
-let port = process.env.PORT;
-if (port == null || port == "") {
-  port = 3000;
-}
+let port = process.env.PORT || 3000;
 
 app.listen(port);
