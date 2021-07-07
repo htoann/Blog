@@ -30,10 +30,32 @@ function route(app) {
     let sendMail = function () {
       const mailTransporter = nodemailer.createTransport({
         service: "gmail",
+        secure: true,
         auth: {
+          type: "OAuth2",
           user: process.env.EMAIL,
-          pass: process.env.PASSWORD,
+          clientId: process.env.EMAIL_CLIENT_ID,
+          clientSecret: process.env.EMAIL_CLIENT_SECRET,
+          refreshToken: process.env.EMAIL_REFRESH_TOKEN,
+          accessToken: process.env.EMAIL_ACCESS_TOKEN,
+          expires: 1484314697598,
         },
+      });
+
+      mailTransporter.set("oauth2_provision_cb", (user, renew, callback) => {
+        let accessToken = userTokens[user];
+        if (!accessToken) {
+          return callback(new Error("Unknown user"));
+        } else {
+          return callback(null, accessToken);
+        }
+      });
+
+      mailTransporter.on("token", (token) => {
+        console.log("A new access token was generated");
+        console.log("User: %s", token.user);
+        console.log("Access Token: %s", token.accessToken);
+        console.log("Expires: %s", new Date(token.expires));
       });
 
       let mailDetails = {
