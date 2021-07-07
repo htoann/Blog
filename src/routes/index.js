@@ -7,6 +7,12 @@ var commentRouter = require("./comment.js");
 var nodemailer = require("nodemailer");
 
 function route(app) {
+  app.use("/auth", authRouter);
+
+  app.use("/me", meRouter);
+
+  app.use("/blog", blogRouter);
+
   app.use("/mail", (req, res) => {
     const output = `
       <p>Hi ${req.body.name},</p>
@@ -19,7 +25,7 @@ function route(app) {
       `;
     let sendMail = function () {
       const mailTransporter = nodemailer.createTransport({
-        service: "Gmail",
+        service: "gmail",
         auth: {
           user: process.env.EMAIL,
           pass: process.env.PASSWORD,
@@ -45,12 +51,6 @@ function route(app) {
     res.redirect("/blog");
     sendMail();
   });
-
-  app.use("/auth", authRouter);
-
-  app.use("/me", meRouter);
-
-  app.use("/blog", blogRouter);
 
   app.use("/comment", commentRouter);
 
