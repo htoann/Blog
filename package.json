@@ -17,7 +17,7 @@
     "tranhuutoan"
   ],
   "author": "Tran Huu Toan",
-  "license": "ISC",
+  "license": "MIT",
   "engines": {
     "node": "14.16.0"
   },
