@@ -1,23 +1,12 @@
-var authRouter = require("./auth");
-var meRouter = require("./me");
+var authRouter = require("./Auth");
+var meRouter = require("./Me");
 var blogRouter = require("./Blog");
-var siteRouter = require("./site");
-var aboutRouter = require("./about");
-var commentRouter = require("./comment.js");
-
-const nodemailer = require("nodemailer");
+var siteRouter = require("./Site");
+var aboutRouter = require("./About");
+var commentRouter = require("./Comment.js");
+var nodemailer = require("nodemailer");
 
 function route(app) {
-  app.use("/auth", authRouter);
-
-  app.use("/me", meRouter);
-
-  app.use("/blog", blogRouter);
-
-  app.use("/comment", commentRouter);
-
-  app.use("/about", aboutRouter);
-
   app.use("/mail", (req, res) => {
     const output = `
       <p>Hi ${req.body.name},</p>
@@ -30,28 +19,12 @@ function route(app) {
       `;
     let sendMail = function () {
       const mailTransporter = nodemailer.createTransport({
-        // pool: true,
-        service: "gmail",
+        service: "Gmail",
         auth: {
-          // type: "OAuth2",
           user: process.env.EMAIL,
-          // refreshToken: process.env.EMAIL_REFRESH_TOKEN,
-          // clientId: process.env.EMAIL_CLIENT_ID,
-          // clientSecret: process.env.EMAIL_CLIENT_SECRET,
           pass: process.env.PASSWORD,
         },
       });
-
-      // mailTransporter.verify((error, success) => {
-      //   if (error) return console.log(error);
-      //   console.log("Server is ready to take our messages: ", success);
-      //   mailTransporter.on("token", (token) => {
-      //     console.log("A new access token was generated");
-      //     console.log("User: %s", token.user);
-      //     console.log("Access Token: %s", token.accessToken);
-      //     console.log("Expires: %s", new Date(token.expires));
-      //   });
-      // });
 
       let mailDetails = {
         from: "bloghtoan@gmail.com",
@@ -72,6 +45,16 @@ function route(app) {
     res.redirect("/blog");
     sendMail();
   });
+
+  app.use("/auth", authRouter);
+
+  app.use("/me", meRouter);
+
+  app.use("/blog", blogRouter);
+
+  app.use("/comment", commentRouter);
+
+  app.use("/about", aboutRouter);
 
   app.use("/", siteRouter);
 
