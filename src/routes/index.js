@@ -13,6 +13,10 @@ function route(app) {
 
   app.use("/blog", blogRouter);
 
+  app.use("/comment", commentRouter);
+
+  app.use("/about", aboutRouter);
+
   app.use("/mail", (req, res) => {
     const output = `
       <p>Hi ${req.body.name},</p>
@@ -51,10 +55,6 @@ function route(app) {
     res.redirect("/blog");
     sendMail();
   });
-
-  app.use("/comment", commentRouter);
-
-  app.use("/about", aboutRouter);
 
   app.use("/", siteRouter);
 
