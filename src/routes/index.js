@@ -46,7 +46,7 @@ function route(app) {
 
       mailTransporter.sendMail(mailDetails, function (err, data) {
         if (err) {
-          console.log("Error Occurs");
+          console.log(err);
         } else {
           console.log("Email sent successfully");
         }
