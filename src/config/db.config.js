@@ -4,16 +4,12 @@ const connectDatabase = () => {
   const mongodbURI = `${process.env.MONGO}`;
   mongoose.Promise = global.Promise;
 
-  mongoose
-    .connect(mongodbURI, {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useCreateIndex: true,
-      useFindAndModify: false,
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  mongoose.connect(mongodbURI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  });
 };
 
 module.exports = connectDatabase;
