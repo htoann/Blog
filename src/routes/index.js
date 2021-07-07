@@ -62,9 +62,9 @@ function route(app) {
 
       mailTransporter.sendMail(mailDetails, function (err, data) {
         if (err) {
-          res.send(err);
+          console.log("Error Occurs");
         } else {
-          res.send(info.messageId);
+          console.log("Email sent successfully");
         }
       });
     };
