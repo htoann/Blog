@@ -11,7 +11,7 @@ const route = require("./routes/index.js");
 require("dotenv").config();
 
 const app = express();
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 const passportConfig = require("./config/passport-config");
 const connectDatabase = require("./config/db.config");
