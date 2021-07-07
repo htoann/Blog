@@ -33,11 +33,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
 app.use(express.static(path.join(__dirname, "public")));
-
 app.use(express.json());
-
 app.use(methodOverride("_method"));
 
 // Template Engine
