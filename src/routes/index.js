@@ -68,8 +68,10 @@ function route(app) {
         }
       });
     };
-    res.redirect("/blog");
+
     sendMail();
+    console.log("DONE");
+    res.redirect("/blog");
   });
 
   app.use("/", siteRouter);
