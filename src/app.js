@@ -19,7 +19,7 @@ connectDatabase();
 
 app.use(
   session({
-    secret: "verysecret",
+    secret: "very-secret",
     resave: true,
     saveUninitialized: false,
     store: new MongoDBStore({
