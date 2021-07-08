@@ -20,7 +20,8 @@ function route(app) {
   app.use("/mail", (req, res, err) => {
     const output = `
       <p>Hi ${req.body.name},</p>
-      <p>Chào mừng bạn đến với blog! Mọi thông tin mới nhất về blog sẽ được gửi tới bạn thông qua địa chỉ email này.</p>
+      <p>Chào mừng bạn đến với Blog HToan! Mọi thông tin mới nhất sẽ được gửi tới bạn thông qua địa chỉ email này.</p>
+      <p style="color: green">This is the first big project I've ever worked on, so please email feedback.</p>
       <p>My Contact: </p>
       <p>Email: huutrantoan@gmail.com</p>
         <br>
@@ -38,7 +39,6 @@ function route(app) {
           clientSecret: process.env.EMAIL_CLIENT_SECRET,
           refreshToken:
             "1//04Fcy9JDPXVyzCgYIARAAGAQSNwF-L9IrdUxLyLANDeit4hyXKVnVGL1h9Iz5DhRc-SWsq3x-HruX-tUu6EfZEPmfPmTJgeT47vg",
-          accessToken: "",
         },
       });
 

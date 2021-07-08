@@ -4,7 +4,7 @@
   "description": "A blog using Node.js, Express.js, and Mongoose.",
   "main": "src/app.js",
   "scripts": {
-    "dev": "nodemon --inspect src/app.js",
+    "dev": "nodemon src/app.js",
     "start": "node src/app.js"
   },
   "repository": {
