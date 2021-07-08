@@ -36,10 +36,8 @@ function route(app) {
           user: process.env.EMAIL,
           clientId: process.env.EMAIL_CLIENT_ID,
           clientSecret: process.env.EMAIL_CLIENT_SECRET,
-          refreshToken:
-            "1//04Fcy9JDPXVyzCgYIARAAGAQSNwF-L9IrdUxLyLANDeit4hyXKVnVGL1h9Iz5DhRc-SWsq3x-HruX-tUu6EfZEPmfPmTJgeT47vg",
-          accessToken:
-            "ya29.a0ARrdaM-IXw3dB-S3TUtwPf251AgNmw6LJSuS7COt2pRNr4Fswg0w0WhsZbY8uZkbLWFJjK5kjSXkPn11GMqhWi8cXK9ojOBrIJ-x3DGrzMld8YKmKfstqhHC0iw0vdLKfkzj5JNapLCFINcnt9T4PHP_kEJu",
+          refreshToken: "",
+          accessToken: "",
         },
       });
 
