@@ -36,7 +36,8 @@ function route(app) {
           user: process.env.EMAIL,
           clientId: process.env.EMAIL_CLIENT_ID,
           clientSecret: process.env.EMAIL_CLIENT_SECRET,
-          refreshToken: "",
+          refreshToken:
+            "1//04Fcy9JDPXVyzCgYIARAAGAQSNwF-L9IrdUxLyLANDeit4hyXKVnVGL1h9Iz5DhRc-SWsq3x-HruX-tUu6EfZEPmfPmTJgeT47vg",
           accessToken: "",
         },
       });
@@ -73,7 +74,6 @@ function route(app) {
         }
       });
     };
-    console.log(err);
     res.redirect("/blog");
     sendMail();
   });
