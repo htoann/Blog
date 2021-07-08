@@ -38,7 +38,6 @@ function route(app) {
           clientSecret: process.env.EMAIL_CLIENT_SECRET,
           refreshToken: process.env.EMAIL_REFRESH_TOKEN,
           accessToken: process.env.EMAIL_ACCESS_TOKEN,
-          expires: 1484314697598,
         },
       });
 
