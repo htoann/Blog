@@ -54,6 +54,8 @@ app.set("views", path.join(__dirname, "resources/views"));
 // Routes Init
 route(app);
 
-let port = process.env.PORT || 3000;
+let PORT = process.env.PORT || 3000;
 
-app.listen(port);
+app.listen(PORT, () => {
+  console.log(`App listen on http://localhost:${PORT}`);
+});
