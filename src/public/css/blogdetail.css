@@ -36,6 +36,7 @@ form {
 }
 .post-author-link:hover {
   text-decoration: underline;
+  cursor: pointer;
 }
 .post-description {
   line-height: 28px;
