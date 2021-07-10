@@ -45,6 +45,9 @@ class AuthController {
             passport.authenticate("local")(req, res, () => {
               res.redirect("/profile");
             });
+          })
+          .catch((error) => {
+            console.log(error);
           });
       } else {
         message = "Username has already been used";
