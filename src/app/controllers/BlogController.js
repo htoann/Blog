@@ -4,7 +4,8 @@ const { mongooseToObject } = require("../../util/mongoose");
 
 class BlogController {
   index(req, res, next) {
-    BlogPost.find({})
+    BlogPost.find()
+      .sort({ updatedAt: -1 })
       .then((posts) => {
         res.render("blog", {
           posts: multipleMongooseToObject(posts),
