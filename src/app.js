@@ -23,7 +23,7 @@ app.use(
     resave: true,
     saveUninitialized: false,
     store: new MongoDBStore({
-      uri: `${process.env.MONGO}`,
+      uri: process.env.MONGO,
       collection: "sessions",
       connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
     }),
