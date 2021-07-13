@@ -12,7 +12,7 @@ const route = require("./routes/index.js");
 require("dotenv").config();
 
 const app = express();
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({ extended: true }));
 
 const connectDatabase = require("./config/db.config");
 connectDatabase();
