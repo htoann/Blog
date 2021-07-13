@@ -74,7 +74,7 @@ class BlogController {
         .then((post) => {
           if (post.author == req.user.username) {
             post.delete();
-            res.redirect("back");
+            res.redirect("/me/stored/blogs");
           } else {
             res.redirect("back");
           }
