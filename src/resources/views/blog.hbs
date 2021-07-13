@@ -28,13 +28,14 @@
             {{#each posts}}
 
             <div class="blog container-fluid">
-                <p class="cate">Category {{ this.categories}}</p>
+
                 <a class="title" href="/blog/{{this.slug}}">
+                    <p class="cate">Category {{ this.categories}}</p>
                     <h3 class="title">{{ this.title }}</h3>
+                    <p class="des">{{ this.description }}</p>
+                    <a class="author" href="#"> By {{ this.author }} </a>
+                    <hr style="width: 680px; margin: 40px 0" />
                 </a>
-                <p class="des">{{ this.description }}</p>
-                <a class="author" href="#"> By {{ this.author }} </a>
-                <hr style="width: 680px; margin: 40px 0" />
             </div>
 
             {{else}}
