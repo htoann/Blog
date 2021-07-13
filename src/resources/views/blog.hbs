@@ -59,17 +59,8 @@
     <div class="back-to-top">
         <a href="#"><i class="fas fa-chevron-circle-up"></i></a>
     </div>
+
+    <script src="/js/filter-blog.js"></script>
 </body>
 
 </html>
-
-<script>
-    $(document).ready(function () {
-        $("#myInput").on("keyup", function () {
-            var value = $(this).val().toLowerCase();
-            $(".blogs div").filter(function () {
-                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-            });
-        });
-    });
-</script>

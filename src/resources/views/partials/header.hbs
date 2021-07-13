@@ -39,15 +39,4 @@
     </div>
   </div>
 </header>
-
-<script>
-  let hourz = new Date().getHours();
-  let helloz = document.querySelector('.nav-link-welcome');
-  if (hourz >= 0 && hourz <= 11) {
-    helloz.innerHTML = "Good Morning";
-  }
-  else if (hourz > 11 && hourz <= 18) {
-    helloz.innerHTML = "Good Afternoon";
-  }
-  else helloz.innerHTML = "Good Evening";
-</script>
+<script src="/js/welcome-navbar.js"></script>

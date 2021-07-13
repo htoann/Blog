@@ -5,14 +5,13 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home Page</title>
+  <title>Blog HToan</title>
   <link rel="stylesheet" href="/css/home.css" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  {{! <div id="wave"></div> }}
   <div class="view-blog">
     <div class="hover hover-5 text-white rounded container header-top">
       <div class="hover-5-content">
@@ -35,18 +34,8 @@
       <button class="btn btn-outline-light btn-lg btn-Subscribe" type="submit">Subscribe</button>
     </form>
   </div>
+
+  <script src="/js/welcome-homepage.js"></script>
 </body>
 
 </html>
-
-<script>
-  let hour = new Date().getHours();
-  let hello = document.querySelector('.font-weight-bold');
-  if (hour >= 0 && hour <= 11) {
-    hello.innerHTML = "Good Morning";
-  }
-  else if (hour > 11 && hour <= 18) {
-    hello.innerHTML = "Good Afternoon";
-  }
-  else hello.innerHTML = "Good Evening";
-</script>
