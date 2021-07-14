@@ -8,7 +8,6 @@ const BlogPost = new Schema(
     title: { type: String, required: true },
     author: String,
     description: String,
-
     img: String,
     content: String,
     categories: String,

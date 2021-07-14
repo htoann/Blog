@@ -69,18 +69,20 @@ class BlogController {
 
   // [DELETE] /blog/:id/ Soft Delete
   deleteDelete(req, res, next) {
+    let backURL = req.header("Referer") || "/";
     if (req.isAuthenticated()) {
       BlogPost.findById(req.params.id)
         .then((post) => {
           if (post.author == req.user.username) {
             post.delete();
-            res.redirect("/me/stored/blogs");
+            if (backURL.includes("/blog/")) res.redirect("/blog");
+            else res.redirect("/me/stored/blogs");
           } else {
-            res.redirect("back");
+            res.redirect(backURL);
           }
         })
         .catch(next);
-    } else res.redirect("back");
+    } else res.redirect(backURL);
   }
 
   deleteForce(req, res, next) {
