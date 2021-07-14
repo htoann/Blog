@@ -19,6 +19,7 @@ connectDatabase();
 
 app.use(
   session({
+    maxAge: 60000,
     secret: "very-secret",
     resave: true,
     saveUninitialized: false,

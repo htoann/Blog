@@ -60,8 +60,12 @@ class BlogController {
 
   // [PUT] /blog/:id/
   putUpdate(req, res, next) {
+    let backURL = req.header("Referer") || "/";
     BlogPost.updateOne({ _id: req.params.id }, req.body)
-      .then(() => res.redirect("/me/stored/blogs"))
+      .then(() => {
+        if (backURL.includes("/blog/")) res.redirect("/blog");
+        else res.redirect("/me/stored/blogs");
+      })
       .catch(next);
   }
 
