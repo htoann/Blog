@@ -16,9 +16,13 @@ To run this application, you have to set your own environmental variables. For s
 
 - SESSION_SECRET: a secret message for the session. You can use any string here.
 
-- GMAIL_EMAIL, GMAIL_PASSWORD: the email and password given to nodemailer to send/receive the email. Please put a real email and password here because you will receive the messages sent from the contact us form on this email.
+- GMAIL_EMAIL, GMAIL_PASSWORD: the email and password given to nodemailer to send/receive the email. Please put a real email and password here because you will receive the messages sent from the contact us form on this email. Ex:
 
 Now you can run in the terminal and the application should work.
+
+```yaml
+https://www.youtube.com/watch?v=dQw4w9WgXcQ
+```
 
 ```
 npm install
