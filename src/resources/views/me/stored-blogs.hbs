@@ -17,7 +17,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Title</th>
                 <th scope="col">Category</th>
-                <th scope="col">Created At</th>
+                <th scope="col">Updated At</th>
                 <th></th>
                 <th></th>
             </tr>
@@ -26,9 +26,11 @@
             {{#each posts}}
             <tr>
                 <th scope="row">{{ sum @index 1}}</th>
-                <td class="text-truncate" style="max-width: 500px">{{ this.title }}</td>
-                <td>{{ this.categories }}</td>
-                <td>{{this.createdAt}}</td>
+                <td class="text-truncate" style="max-width: 500px"><a style="text-decoration: none"
+                        href="/blog/{{this.slug}}">{{ this.title }}</a>
+                </td>
+                <td>{{this.categories}}</td>
+                <td>{{this.updatedAt}}</td>
                 <td><a href="/blog/{{this._id}}/edit" type="button" class="btn btn-success">Edit</a></td>
                 <td><a href="/blog/{{this._id}}/delete" type="button" class="btn btn-danger" data-id="{{this._id}}"
                         data-bs-toggle="modal" data-bs-target="#deletePost">Delete</button>
@@ -37,8 +39,8 @@
             {{else}}
             <tr>
                 <td colspan="6" class="text-center">
-                    <h4>You don't have any posts yet</h4>
-                    <a href="/blog/create" class="btn btn-success mt-4">Create A New Post Now</a>
+                    <h4>You don't have any blogs yet</h4>
+                    <a href="/blog/create" class="btn btn-primary mt-4">Create A New Blog Now</a>
                 </td>
             </tr>
             {{/each}}
@@ -55,8 +57,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p>Items in your trash will be automatically deleted after 30 days. You can delete them earlier from
-                        your Trash by going to "Trash" in "My Blogs".</p>
+                    <p>Do you want to delete this blog in trash? You can restore it at any time.</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -65,29 +66,12 @@
             </div>
         </div>
     </div>
+    {{> footer}}
 </body>
 
 {{!-- Delete Hiden Form --}}
 
 <form name="delete-post-form" method="POST"></form>
+<script src="/js/confirm-delete.js"></script>
 
 </html>
-
-<script>
-    var exampleModal = document.getElementById('deletePost')
-    let postId;
-    let deleteForm = document.forms['delete-post-form']
-    let btnDeletePost = document.getElementById('btn-delete-post')
-
-    // When Dialog Confirm Clicked
-    exampleModal.addEventListener('show.bs.modal', function (event) {
-        let button = event.relatedTarget
-        postId = button.getAttribute('data-id')
-    })
-
-    // When Delete Post Button Clicked
-    btnDeletePost.addEventListener('click', function () {
-        deleteForm.action = '/blog/' + postId + '?_method=DELETE'
-        deleteForm.submit()
-    })
-</script>

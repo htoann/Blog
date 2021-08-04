@@ -1,5 +1,5 @@
 body {
-  background: linear-gradient(rgb(14, 137, 146), rgb(53, 45, 100));
+  background: linear-gradient(to right, #4e4376, #2b5876);
 }
 
 .card {
@@ -11,11 +11,11 @@ body {
   width: 500px;
   padding: 40px;
   position: absolute;
-  background: #000000;
+  background: #111418;
   text-align: center;
   transition: 0.25s;
   margin-top: 100px;
-  border-radius: 5%;
+  border-radius: 15px;
 }
 
 .box input[type="text"],
