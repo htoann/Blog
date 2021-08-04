@@ -6,6 +6,8 @@ body {
   border: none;
   box-shadow: 5px 6px 6px 2px #e9ecef;
   border-radius: 40px;
+  display: block;
+  margin: auto;
 }
 
 .dots {
@@ -50,21 +52,6 @@ body {
   margin-left: 8px;
 }
 
-.reply {
-  margin-left: 12px;
-}
-
-.reply small {
-  color: #b7b4b4;
-}
-
-.reply small:hover {
-  color: green;
-  cursor: pointer;
-}
-
-/*  */
-
 .time {
   font-size: 15px;
 }
@@ -75,13 +62,14 @@ body {
 }
 
 .post-comment {
-  margin-bottom: 10%;
+  margin-bottom: 30px;
 }
 
 .comment-title {
-  margin-left: 3.5%;
+  margin: auto;
 }
 
 form {
-  margin-left: 20%;
+  display: block;
+  margin: auto;
 }

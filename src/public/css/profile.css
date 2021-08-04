@@ -1,3 +1,7 @@
+body {
+  background: linear-gradient(rgb(14, 137, 146), rgb(53, 45, 100));
+}
+
 .text-white {
   color: #fff !important;
 }
@@ -19,11 +23,8 @@
   display: block;
 }
 
-.bg-dark {
-  background-color: rgba(24, 28, 33, 0.9) !important;
-}
 .opacity-50 {
-  opacity: 0.5 !important;
+  opacity: 0.7 !important;
 }
 .bg-dark {
   background-color: rgba(24, 28, 33, 0.9) !important;

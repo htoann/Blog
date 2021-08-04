@@ -1,24 +1,45 @@
-.view-blog {
-  animation: transitionIn 2s;
+body {
+  background-color: black;
+  background-image: url(/img/pluralsight.png);
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+.header-top {
+  transform-origin: 20% top;
+  animation: transitionIn 1s;
+}
+
+.header-bottom {
+  transform-origin: bottom;
+  animation: subscribe ease-in-out 1s;
+  position: relative;
+  margin-top: 30px;
 }
 
 @keyframes transitionIn {
-  0% {
-    transform: translateY(20%);
+  from {
+    transform: scale(0.8);
   }
-  100% {
-    transform: translateY(0);
+  to {
+    transform: scale(1);
   }
 }
 
-body {
-  /* background-image: url(/img/destop.png); */
-  background-image: url(/img/pluralsight.png);
-  background-size: cover;
+@keyframes subscribe {
+  0% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
 }
+
 .hover {
   position: relative;
-  width: 706px;
+  width: 50%;
   height: 450px;
 }
 
@@ -44,7 +65,8 @@ body {
 .good-morning {
   margin-top: 10px;
   margin-left: 12%;
-  font-size: 40px;
+  font-size: 32px;
+  color: #de5b6d;
 }
 
 .hover-5-content {
@@ -52,15 +74,18 @@ body {
 }
 
 form {
-  margin-top: 5%;
   text-align: center;
+}
+
+form h2 {
+  color: #478ba2;
 }
 
 input {
   height: 50px;
   width: 30%;
   font-size: 20px;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .btn-Subscribe {
@@ -73,15 +98,15 @@ input {
 }
 
 .btn-Subscribe:hover {
-  background-color: black;
-  color: white;
+  background-color: red;
 }
 
 .welcome {
   font-family: "Megrim", cursive;
+  width: 105%;
 }
 .transition-ok {
-  width: 100%;
+  width: 65%;
   height: 200px;
-  position: relative;
+  position: absolute;
 }

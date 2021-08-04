@@ -1,5 +1,3 @@
-const { multipleMongooseToObject } = require("../../until/mongoose");
-const { mongooseToObject } = require("../../until/mongoose");
 const Comment = require("../models/Comment.js");
 
 class CommentController {
@@ -8,14 +6,9 @@ class CommentController {
       slug: req.params.slug,
       content: req.body.content,
     });
-    comment
-      .save()
-      .then((comment) => {
-        res.redirect("/blog/" + req.params.slug);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    comment.save().then((comment) => {
+      res.redirect("/blog/" + req.params.slug);
+    });
   }
 }
 

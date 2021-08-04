@@ -1,12 +1,11 @@
 const BlogPost = require("../models/BlogPost");
-const { multipleMongooseToObject } = require("../../until/mongoose");
-const { mongooseToObject } = require("../../until/mongoose");
-const User = require("../models/User.js");
-const Comment = require("../models/Comment.js");
+const { multipleMongooseToObject } = require("../../util/mongoose");
+const { mongooseToObject } = require("../../util/mongoose");
 
 class BlogController {
   index(req, res, next) {
-    BlogPost.find({})
+    BlogPost.find()
+      .sort({ updatedAt: -1 })
       .then((posts) => {
         res.render("blog", {
           posts: multipleMongooseToObject(posts),
@@ -36,8 +35,10 @@ class BlogController {
     const blog = new BlogPost(req.body);
     blog
       .save()
-      .then(() => res.redirect("/me/stored/posts"))
-      .catch((err) => {});
+      .then(() => res.redirect("/blog"))
+      .catch((err) => {
+        console.error(err);
+      });
   }
 
   // [GET] /blog/:id/edit
@@ -59,8 +60,12 @@ class BlogController {
 
   // [PUT] /blog/:id/
   putUpdate(req, res, next) {
+    let backURL = req.header("Referer") || "/";
     BlogPost.updateOne({ _id: req.params.id }, req.body)
-      .then(() => res.redirect("/me/stored/blogs"))
+      .then(() => {
+        if (backURL.includes("/blog/")) res.redirect("/blog");
+        else res.redirect("/me/stored/blogs");
+      })
       .catch(next);
   }
 
@@ -68,18 +73,20 @@ class BlogController {
 
   // [DELETE] /blog/:id/ Soft Delete
   deleteDelete(req, res, next) {
+    let backURL = req.header("Referer") || "/";
     if (req.isAuthenticated()) {
       BlogPost.findById(req.params.id)
         .then((post) => {
           if (post.author == req.user.username) {
             post.delete();
-            res.redirect("back");
+            if (backURL.includes("/blog/")) res.redirect("/blog");
+            else res.redirect("/me/stored/blogs");
           } else {
-            res.redirect("back");
+            res.redirect(backURL);
           }
         })
         .catch(next);
-    } else res.redirect("back");
+    } else res.redirect(backURL);
   }
 
   deleteForce(req, res, next) {

@@ -1,39 +1,41 @@
-<title>Home</title>
-<link rel="stylesheet" href="/css/home.css" />
-<link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+<!DOCTYPE html>
+<html lang="en">
 
-{{! <div id="wave"></div> }}
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog HToan</title>
+  <link rel="stylesheet" href="/css/home.css" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Megrim&display=swap" rel="stylesheet">
+</head>
 
-<div class="view-blog">
-  <div class="hover hover-5 text-white rounded container">
-    <div class="hover-5-content">
-      <div class="hover-5-title text-uppercase font-weight-light mb-0">
-        <p class="welcome">Welcome To The Home Page</p>
-        <strong class="font-weight-bold text-white good-morning"></strong>
-        <a class="btn btn-outline-light btn-lg" href="/blog">View Blogs</a>
+<body>
+  <div class="view-blog">
+    <div class="hover hover-5 text-white rounded container header-top">
+      <div class="hover-5-content">
+        <div class="hover-5-title text-uppercase font-weight-light mb-0">
+          <p class="welcome">Welcome To The Home Page</p>
+          <strong class="font-weight-bold good-morning"></strong>
+          <a class="btn btn-outline-light btn-lg" href="/blog">View Blogs</a>
+        </div>
       </div>
     </div>
+    <br>
+    <form action="/mail" method="POST" class="header-bottom">
+      <h2>Subscribe For More Blogs</h2>
+      <input name="name" class="text-dark" placeholder="Name" autocomplete="off" required>
+      <br>
+      <input type="email" name="mail" class="text-dark" placeholder="Email"
+        pattern="^([0-9a-zA-Z]([-.\\\\\\\\\\\\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
+        required>
+      <br><br>
+      <button class="btn btn-outline-light btn-lg btn-Subscribe" type="submit">Subscribe</button>
+    </form>
   </div>
-  <br>
-  <form action="/mail" method="POST">
-    <h2 for="mail" class="text-white">Subscribe For More Blogs</h2>
-    <input type="email" name="mail" class="text-white" id="mail" placeholder="Email"
-      pattern="^([0-9a-zA-Z]([-.\\\\\\\\\\\\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,9})$"
-      required>
-    <button class="btn btn-outline-light btn-lg btn-Subscribe" type="submit">Subscribe</button>
-  </form>
-</div>
-<div class="transition-ok"></div>
 
-<script>
-  let hour = new Date().getHours();
-  let hello = document.querySelector('.font-weight-bold');
-  if (hour >= 0 && hour <= 11) {
-    hello.innerHTML = "Good Morning";
-  }
-  else if (hour > 11 && hour <= 18) {
-    hello.innerHTML = "Good Afternoon";
-  }
-  else hello.innerHTML = "Good Evening";
-</script>
+  <script src="/js/welcome-homepage.js"></script>
+</body>
+
+</html>

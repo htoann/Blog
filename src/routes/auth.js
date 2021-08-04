@@ -2,7 +2,6 @@ const express = require("express");
 const router = express.Router();
 
 const authController = require("../app/controllers/AuthController");
-router.use(express.urlencoded({ extended: true }));
 
 router.get("/login", authController.getLogin);
 router.post("/login", authController.postLogin);

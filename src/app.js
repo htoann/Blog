@@ -1,50 +1,30 @@
 const path = require("path");
 const express = require("express");
-const mongoose = require("mongoose");
 const exphbs = require("express-handlebars");
-const methodOverride = require("method-override");
-const app = express();
 const flash = require("express-flash");
-const passport = require("passport");
 const session = require("express-session");
+const passport = require("passport");
 const passportConfig = require("./config/passport-config");
+const methodOverride = require("method-override");
 const MongoDBStore = require("connect-mongodb-session")(session);
-require("dotenv").config();
-var route = require("./routes/index.js");
+const route = require("./routes/index.js");
 
+require("dotenv").config();
+
+const app = express();
 app.use(express.urlencoded({ extended: true }));
 
-let mongodbURI =
-  "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority";
-if (process.env.MONGODB_URL) {
-  mongodbURI = process.env.MONGODB_URL;
-}
-
-mongoose
-  .connect(mongodbURI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  })
-  .then((result) => {
-    let port = process.env.PORT;
-    if (port == null || port == "") {
-      port = 3000;
-    }
-    app.listen(port);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+const connectDatabase = require("./config/db.config");
+connectDatabase();
 
 app.use(
   session({
-    secret: "verysecret",
+    maxAge: 60000,
+    secret: "very-secret",
     resave: true,
     saveUninitialized: false,
     store: new MongoDBStore({
-      uri: "mongodb+srv://root:root@cluster0.aj2mc.mongodb.net/tranhuutoan_blog_dev?retryWrites=true&w=majority",
+      uri: process.env.MONGO,
       collection: "sessions",
       connectionOptions: { useNewUrlParser: true, useUnifiedTopology: true },
     }),
@@ -54,15 +34,8 @@ app.use(
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
 app.use(express.static(path.join(__dirname, "public")));
-app.use(
-  express.urlencoded({
-    extended: false,
-  })
-);
 app.use(express.json());
-
 app.use(methodOverride("_method"));
 
 // Template Engine
@@ -81,3 +54,9 @@ app.set("views", path.join(__dirname, "resources/views"));
 
 // Routes Init
 route(app);
+
+let PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`App listen on http://localhost:${PORT}`);
+});
