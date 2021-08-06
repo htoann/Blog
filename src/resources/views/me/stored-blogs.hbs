@@ -1,0 +1,77 @@
+<html lang="en">
+
+<head>
+    <title>My Blogs</title>
+</head>
+
+<body>
+    <div class="d-flex justify-content-between">
+        <h2 class="title-main-page">My Blogs</h2>
+        <a href="/me/trash/blogs" class="btn btn-primary mt-auto"><i class="fas fa-trash body icon-title"></i>Trash
+            ({{deletedCount}})
+        </a>
+    </div>
+    <table class="table table-hover mt-4">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Title</th>
+                <th scope="col">Category</th>
+                <th scope="col">Updated At</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each posts}}
+            <tr>
+                <th scope="row">{{ sum @index 1}}</th>
+                <td class="text-truncate" style="max-width: 500px"><a style="text-decoration: none"
+                        href="/blog/{{this.slug}}">{{ this.title }}</a>
+                </td>
+                <td>{{this.categories}}</td>
+                <td>{{this.updatedAt}}</td>
+                <td><a href="/blog/{{this._id}}/edit" type="button" class="btn btn-success">Edit</a></td>
+                <td><a href="/blog/{{this._id}}/delete" type="button" class="btn btn-danger" data-id="{{this._id}}"
+                        data-bs-toggle="modal" data-bs-target="#deletePost">Delete</button>
+                </td>
+            </tr>
+            {{else}}
+            <tr>
+                <td colspan="6" class="text-center">
+                    <h4>You don't have any blogs yet</h4>
+                    <a href="/blog/create" class="btn btn-primary mt-4">Create A New Blog Now</a>
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+
+    {{!-- Confirm Delete --}}
+
+    <div class="modal fade" id="deletePost" tabindex="-1" aria-labelledby="deletePost" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete to Your Trash?</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Do you want to delete this blog in trash? You can restore it at any time.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button id="btn-delete-post" type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{> footer}}
+</body>
+
+{{!-- Delete Hiden Form --}}
+
+<form name="delete-post-form" method="POST"></form>
+<script src="/js/confirm-delete.js"></script>
+
+</html>

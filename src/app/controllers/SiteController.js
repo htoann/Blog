@@ -1,6 +1,6 @@
 class SiteController {
   getHome(req, res) {
-    res.render("home");
+    res.render("home", { user: req.user });
   }
 
   getProfile(req, res) {

@@ -1,74 +1,42 @@
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark my-header">
-  <div class="container-fluid container mt-2">
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="/"><i class="fas fa-home icon-title"></i>Home</a>
+<header class="p-3 bg-dark text-white sticky-top">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/" class="nav-link px-2 text-white"><i class="fas fa-home icon-title"></i>Home</a></li>
+        <li><a href="/blog" class="nav-link px-2 text-white">All Blogs</a></li>
+        <li><a href="/blog/create" class="nav-link px-2 text-white">New Blog</a></li>
+        <li><a href="/me/stored/blogs" class="nav-link px-2 text-white">My Blogs</a></li>
+        <li><a href="/about" class="nav-link px-2 text-white">About Me</a></li>
+        <li class="m-2">|</li>
+        <li>
+          <p class="nav-link nav-link-welcome disabled text-info"></p>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog">All Blogs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/blog/create">New Blog</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/me/stored/posts">My Blogs</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/about">About Me</a>
-        </li>
-        <li class="nav-item">
-          <p class="nav-link text-white mb-4">|</p>
-        </li>
-        <li class="nav-item">
-          <p class="nav-link nav-link-welcome disabled text-white"></p>
-        </li>
-
       </ul>
-    </div>
-    <ul class="navbar-nav me-auto mb-3">
-      <li class="nav-item dropdown nav-item-dropdown-user">
-        <img src="/img/user5.png" class="user-img">
-        <a class="nav-link dropdown-toggle vippro" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-          aria-expanded="false">
-          User
+      <div class="dropdown text-end">
+        <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle d-flex" id="dropdownUser1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/huutoan02.png" alt="mdo" width="32" height="32" class="rounded-circle">
+          <div class="text-white px-2 py-1">{{user.username}}</div>
         </a>
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <li><a class="dropdown-item" href="/profile"><i class="fas fa-user-circle icon-title"></i>My Profile</a>
-          </li>
-          <li><a class="dropdown-item" href="/blog/create"></i><i class="fas fa-external-link-alt icon-title"></i>Creat
-              A New Blog</a></li>
-          <li><a class="dropdown-item" href="/me/stored/posts"><i class="fas fa-newspaper icon-title"></i>My Blogs</a>
+        <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="/profile"><i class="fas fa-user-circle icon-title"></i>My Profile</a></li>
+          <li><a class="dropdown-item" href="/blog/create"><i class="fas fa-external-link-alt icon-title"></i>Creat A
+              New Blog</a></li>
+          <li><a class="dropdown-item" href="/me/stored/blogs"><i class="fas fa-newspaper icon-title"></i>My Blogs</a>
           </li>
           <li>
             <hr class="dropdown-divider">
           </li>
-          <li><a class="dropdown-item" href="/auth/logout"><i class="fas fa-sign-out-alt icon-title"></i>Log Out</a>
+          <li><a class="dropdown-item" href="/auth/logout"><i class="fas fa-sign-out-alt icon-title"></i>Sign out</a>
           </li>
         </ul>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link login" href="/auth/login">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/auth/signup">Sign Up</a>
-      </li>
-    </ul>
-  </div>
-</nav>
+      </div>
 
-<script>
-  let hourz = new Date().getHours();
-  let helloz = document.querySelector('.nav-link-welcome');
-  if (hourz >= 0 && hourz <= 11) {
-    helloz.innerHTML = "Good Morning";
-  }
-  else if (hourz > 11 && hourz <= 18) {
-    helloz.innerHTML = "Good Afternoon";
-  }
-  else helloz.innerHTML = "Good Evening";
-</script>
+      <div class="text-end">
+        <a type="button" class="btn btn-outline-light me-2" href="/auth/login">Login</a>
+        <a type="button" class="btn btn-warning" href="/auth/signup">Sign-up</a>
+      </div>
+    </div>
+  </div>
+</header>
+<script src="/js/welcome-navbar.js"></script>
