@@ -1,0 +1,54 @@
+<html lang="en">
+
+<head>
+  <title>Deleted Blogs</title>
+</head>
+
+<body>
+  <div class="d-flex justify-content-between">
+    <h2 class="title-main-page">Deleted Blogs</h2>
+    <a href="/me/stored/blogs" class="btn btn-primary mt-auto"><i class="fas fa-undo-alt icon-title"></i>Back</a>
+  </div>
+  <table class="table table-hover mt-4">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Title</th>
+        <th scope="col">Category</th>
+        <th scope="col">Created At</th>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each posts}}
+      <tr style="width: 100%">
+        <th scope="row">{{sum @index 1}}</th>
+        <td class="text-truncate" style="max-width: 500px">{{this.title}}</td>
+        <td>{{this.categories}}</td>
+        <td>{{this.createdAt}}</td>
+        <td class="d-inline-block">
+          <form method="POST" action="/blog/{{this._id}}/restore?_method=PATCH">
+            <button class="btn btn-success" type="submit">Restore</button>
+          </form>
+        </td>
+        <td class="d-inline-block">
+          <form method="POST" action="/blog/{{this._id}}/force?_method=DELETE">
+            <button class="btn btn-danger" type="submit">Delete</button>
+          </form>
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="6" class="text-center">
+          <h4>Empty Trash</h4>
+          <a href="/blog" class="btn btn-primary mt-4">All blogs</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+  {{> footer}}
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 const passport = require("passport");
 const bcrypt = require("bcrypt");
 const User = require("../models/User.js");
-const { mongooseToObject } = require("../../until/mongoose");
+const { mongooseToObject } = require("../../util/mongoose");
 
 class AuthController {
   getLogin = (req, res) => {
@@ -30,38 +30,41 @@ class AuthController {
       password: bcrypt.hashSync(req.body.password.trim(), 10),
       email: req.body.email.trim(),
     });
-    User.findOne({ username: user.username })
-      .then((data) => {
-        if (!data) {
-          User.findOne({ email: user.email })
-            .then((data) => {
-              if (!data) {
-                return user.save();
-              } else {
-                message = "Email has already been used";
-                return res.render("auth/signup", { message, user });
-              }
-            })
-            .then((result) => {
-              passport.authenticate("local")(req, res, () => {
-                res.redirect("/profile");
-              });
-            })
-            .catch((err) => res.send(err.message));
-        } else {
-          message = "Username has already been used";
-          return res.render("auth/signup", {
-            message,
-            user,
+    User.findOne({ username: user.username }).then((data) => {
+      if (!data) {
+        User.findOne({ email: user.email })
+          .then((data) => {
+            if (!data) {
+              return user.save();
+            } else {
+              message = "Email has already been used";
+              return res.render("auth/signup", { message, user });
+            }
+          })
+          .then((result) => {
+            passport.authenticate("local")(req, res, () => {
+              res.redirect("/profile");
+            });
+          })
+          .catch((error) => {
+            console.log(error);
           });
-        }
-      })
-      .catch((err) => res.send(err.message));
+      } else {
+        message = "Username has already been used";
+        return res.render("auth/signup", {
+          message,
+          user,
+        });
+      }
+    });
   }
 
   getLogout(req, res) {
     if (req.isAuthenticated()) {
       req.logout();
+      req.session.destroy();
+      return res.redirect("/auth/login");
+    } else {
       res.redirect("/auth/login");
     }
   }
@@ -86,7 +89,7 @@ class AuthController {
         }
         if (bcrypt.compareSync(password.trim(), user.password)) {
           return done(null, mongooseToObject(user));
-        } else return done(null, false, { message: "Password incorrect" });
+        } else return done(null, false, { message: "Password is incorrect" });
       })
       .catch(done);
   };

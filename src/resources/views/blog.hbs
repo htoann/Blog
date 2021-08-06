@@ -1,41 +1,66 @@
-<title>Blogs</title>
-<link rel="stylesheet" href="/css/blog.css">
-<h2 class="title-main-page">All Blogs</h2>
-<hr>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="blogs">
-    {{#each posts}}
-    <div class="card acard-item" style="width: 700px">
-        <a class="card-item-title" href="/blog/{{this.slug}}">
-            <h3 class="card-header">{{ this.title }}</h3>
-        </a>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Blogs</title>
+    <link rel="stylesheet" href="/css/blog.css">
+</head>
 
-        {{!-- <img class="card-header-picture" src="{{this.img}}" alt=""> --}}
+<body>
+    <div style="position: absolute;">
+        <h4>Find Blogs</h4>
+        <br>
+        <input id="myInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <br><br>
+    </div>
 
-        <div class="card-body">
-            <p class="card-text">{{ this.description }}</p>
+    <div class="all-blogs">
 
-            <div class="card-footer-item">
-                <a href="#" class="btn btn-light"> Author : {{ this.author }} </a>
-                <h5 class="card-footer-item-p">Category : {{ this.categories}}</>
+        <h2 class="title-main-page">All Blogs</h2>
+
+        <hr style="margin:30px 0 50px 0; width: cover" />
+
+        <div class="blogs">
+
+            {{#each posts}}
+
+            <div class="blog container-fluid">
+
+                <a class="title" href="/blog/{{this.slug}}">
+                    <p class="cate">Category {{ this.categories}}</p>
+                    <h3 class="title">{{ this.title }}</h3>
+                    <p class="des">{{ this.description }}</p>
+                    <a class="author" href="#"> By {{ this.author }} </a>
+                    <hr style="width: 680px; margin: 40px 0" />
+                </a>
             </div>
+
+            {{else}}
+
+            <table class="table table-hover mt-4 text-center">
+                <tbody>
+                    <tr>
+                        <td colspan="6">
+                            <h4>No posts available</h4>
+                            <a href="/blog/create" class="btn btn-success mt-4">Create a new blog now</a>
+                        </td>
+
+                    </tr>
+                </tbody>
+            </table>
+
+            {{/each}}
+
         </div>
     </div>
-    <hr style="width: 680px">
+    <div class="back-to-top">
+        <a href="#"><i class="fas fa-chevron-circle-up"></i></a>
+    </div>
 
-    {{else}}
+    <script src="/js/filter-blog.js"></script>
+</body>
 
-    <table class="table table-hover mt-4 text-center">
-        <tbody>
-            <tr>
-                <td colspan="6">
-                    <h4>No posts available</h4>
-                    <a href="/blog/create" class="btn btn-success mt-4">Create a new blog now</a>
-                </td>
-
-            </tr>
-        </tbody>
-    </table>
-
-    {{/each}}
-</div>
+</html>
