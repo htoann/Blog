@@ -36,7 +36,7 @@
     "express-session": "^1.17.2",
     "googleapis": "^81.0.0",
     "method-override": "^3.0.0",
-    "mongoose": "^6.0.4",
+    "mongoose": "^6.0.9",
     "mongoose-delete": "^0.5.3",
     "mongoose-slug-generator": "^1.0.4",
     "nodemailer": "^6.6.3",
